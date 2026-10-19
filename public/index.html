@@ -21,15 +21,15 @@
   <!-- BARRA SUPERIOR CÁLIDA Y PASTEL DIRIGIDA A MARCOS -->
   <header class="bg-[#FFFFFF] border-b border-[#E2DDD3] px-4 py-3 flex items-center justify-between shrink-0 shadow-sm">
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-[#DCE8DE] border border-[#BFD3C3] flex items-center justify-center text-[#3B5E46] text-lg font-bold">
-        <i class="fa-solid fa-mug-hot"></i>
+      <div class="w-10 h-10 rounded-xl bg-[#F0EDE6] border border-[#DDD7CD] flex items-center justify-center text-black text-lg font-bold">
+        <i class="fa-solid fa-store text-black"></i>
       </div>
       <div>
         <h1 class="font-bold text-sm sm:text-base text-[#2C302E] leading-tight" id="biz-name">
-          Hola Marcos 👋 • Tu Panel Comercial de Almohadas
+          Hola Marcos • Tu Panel Comercial de Almohadas
         </h1>
         <p class="text-xs text-[#6B706C] flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-[#6F9279]"></span>
+          <span class="inline-block w-2 h-2 rounded-full bg-black"></span>
           <span>Tus Reels con fotos/videos 100% reales • Tus números claros • Control por Voz y Telegram</span>
         </p>
       </div>
@@ -37,19 +37,19 @@
 
     <div class="flex items-center gap-2">
       <!-- Botón rápido para que Marcos suba clips o fotos -->
-      <button onclick="document.getElementById('file-upload').click()" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6F9279] hover:bg-[#5E7E67] text-white flex items-center gap-1.5 transition shadow-sm">
-        <i class="fa-solid fa-cloud-arrow-up"></i>
+      <button onclick="document.getElementById('file-upload').click()" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-black hover:bg-neutral-800 text-white flex items-center gap-1.5 transition shadow-sm">
+        <i class="fa-solid fa-cloud-arrow-up text-white"></i>
         <span>Subir mis Clips / Fotos</span>
       </button>
 
       <!-- Estado de Telegram -->
-      <button onclick="openConfigModal()" id="tg-status-pill" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#355670] border border-[#C5D8E8] flex items-center gap-1.5 transition">
-        <i class="fa-brands fa-telegram text-[#4A7696] text-sm"></i>
+      <button onclick="openConfigModal()" id="tg-status-pill" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FFFFFF] hover:bg-[#F2EFE9] text-black border border-[#DDD7CD] flex items-center gap-1.5 transition">
+        <i class="fa-brands fa-telegram text-black text-sm"></i>
         <span id="tg-status-text">Conectar mi Telegram</span>
       </button>
 
-      <a href="https://tienda-marcos.pages.dev" target="_blank" class="hidden md:flex px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#EFECE4] text-[#4A504C] border border-[#DCD6CA] hover:bg-[#E4DFD4] items-center gap-1.5 transition">
-        <i class="fa-solid fa-store text-[#6F9279]"></i>
+      <a href="https://tienda-marcos.pages.dev" target="_blank" class="hidden md:flex px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FFFFFF] text-black border border-[#DDD7CD] hover:bg-[#F2EFE9] items-center gap-1.5 transition">
+        <i class="fa-solid fa-arrow-up-right-from-square text-black text-xs"></i>
         <span>Ver mi Tienda Online</span>
       </a>
     </div>
@@ -64,14 +64,14 @@
       <!-- Top Bar Minimalista y Limpio (Estilo ChatGPT / Gemini) -->
       <div class="px-5 py-3 border-b border-[#EAE5DC] bg-[#FFFFFF]/80 backdrop-blur-sm flex items-center justify-between shrink-0">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-[#E8F0E9] text-[#2F4B38] flex items-center justify-center font-bold text-sm shadow-xs">
-            <i class="fa-solid fa-sparkles text-xs"></i>
+          <div class="w-8 h-8 rounded-full bg-[#EAE7DF] text-black flex items-center justify-center font-bold text-sm shadow-xs">
+            <i class="fa-solid fa-sparkles text-black text-xs"></i>
           </div>
           <div>
             <div class="flex items-center gap-1.5">
               <span class="text-xs sm:text-sm font-bold text-[#2C302E]">Asistente de Marcos</span>
-              <span class="inline-flex items-center gap-1 text-[10px] text-[#3B5E46] font-semibold bg-[#E8F0E9] px-2 py-0.5 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#4A7C59] animate-pulse"></span>
+              <span class="inline-flex items-center gap-1 text-[10px] text-black font-semibold bg-[#EAE7DF] px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-black animate-pulse"></span>
                 <span>En línea</span>
               </span>
             </div>
@@ -79,8 +79,8 @@
           </div>
         </div>
 
-        <button onclick="clearChatHistory()" title="Limpiar conversación" class="text-xs text-[#7A7F7C] hover:text-[#9E4B42] flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-[#F5E6E4] transition">
-          <i class="fa-regular fa-trash-can text-xs"></i>
+        <button onclick="clearChatHistory()" title="Limpiar conversación" class="text-xs text-black hover:text-[#9E4B42] flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-[#F5E6E4] transition">
+          <i class="fa-regular fa-trash-can text-black text-xs"></i>
           <span class="font-medium hidden sm:inline">Limpiar chat</span>
         </button>
       </div>
@@ -91,14 +91,15 @@
       </div>
 
       <!-- Indicador sutil de archivos seleccionados para el próximo Reel -->
-      <div id="selected-files-bar" class="hidden bg-[#E8F0E9] px-5 py-2.5 border-t border-[#CFDFD2] flex items-center justify-between text-xs">
-        <div class="flex items-center gap-2 text-[#2F4B38] font-semibold truncate">
-          <i class="fa-solid fa-check-double text-xs"></i>
+      <div id="selected-files-bar" class="hidden bg-[#EAE7DF] px-5 py-2.5 border-t border-[#DDD7CD] flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2 text-black font-semibold truncate">
+          <i class="fa-solid fa-check-double text-black text-xs"></i>
           <span id="selected-files-text">0 archivos seleccionados</span>
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <button onclick="buildReelFromSelected()" class="bg-[#5C7D66] hover:bg-[#4B6954] text-white font-bold px-3 py-1 rounded-lg text-xs shadow-xs transition">
-            🎬 Armar mi Reel Ahora
+          <button onclick="buildReelFromSelected()" class="bg-black hover:bg-neutral-800 text-white font-bold px-3 py-1 rounded-lg text-xs shadow-xs transition flex items-center gap-1.5">
+            <i class="fa-solid fa-film text-white text-xs"></i>
+            <span>Armar mi Reel Ahora</span>
           </button>
           <button onclick="clearSelectedFiles()" class="text-[#5A635E] hover:text-[#2C302E] text-xs underline">
             Limpiar
@@ -112,15 +113,15 @@
       <!-- Barra de Escritura: Cápsula Flotante (ChatGPT / Gemini / ISA Style) -->
       <div class="p-3 sm:p-4 bg-[#FAF8F5] border-t border-[#EAE5DC] shrink-0">
         <div class="max-w-3xl mx-auto">
-          <form id="chat-form" class="bg-[#FFFFFF] border border-[#DDD7CD] focus-within:border-[#6F9279] focus-within:ring-2 focus-within:ring-[#E8F0E9] rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 flex items-center gap-1.5 shadow-sm transition">
+          <form id="chat-form" class="bg-[#FFFFFF] border border-[#DDD7CD] focus-within:border-black focus-within:ring-2 focus-within:ring-neutral-200 rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 flex items-center gap-1.5 shadow-sm transition">
             <!-- Botón de Adjuntar Archivos -->
             <button 
               type="button"
               onclick="document.getElementById('file-upload').click()"
               title="Adjuntar clips cortos o fotos reales"
-              class="w-9 h-9 rounded-xl hover:bg-[#F6F3EC] text-[#6B706C] hover:text-[#2C302E] flex items-center justify-center transition shrink-0"
+              class="w-9 h-9 rounded-xl hover:bg-[#F6F3EC] text-black flex items-center justify-center transition shrink-0"
             >
-              <i class="fa-solid fa-paperclip text-sm"></i>
+              <i class="fa-solid fa-paperclip text-black text-sm"></i>
             </button>
 
             <!-- Botón de Micrófono -->
@@ -129,9 +130,9 @@
               id="btn-mic"
               onclick="toggleVoiceRecording()"
               title="Marcos: tocá acá para hablarle por micrófono"
-              class="w-9 h-9 rounded-xl hover:bg-[#E8F0F6] text-[#355670] flex items-center justify-center transition shrink-0"
+              class="w-9 h-9 rounded-xl hover:bg-[#F6F3EC] text-black flex items-center justify-center transition shrink-0"
             >
-              <i class="fa-solid fa-microphone text-sm" id="mic-icon"></i>
+              <i class="fa-solid fa-microphone text-black text-sm" id="mic-icon"></i>
             </button>
 
             <!-- Input Principal -->
@@ -149,9 +150,9 @@
               id="btn-voice-toggle"
               onclick="toggleVoiceReplyMode()"
               title="Activar/Desactivar respuesta con voz"
-              class="px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1 bg-[#E8F0E9] text-[#2F4B38] border border-[#CFDFD2] transition shrink-0"
+              class="px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1 bg-[#FFFFFF] text-black border border-[#DDD7CD] transition shrink-0"
             >
-              <i class="fa-solid fa-volume-high text-[10px]" id="voice-toggle-icon"></i>
+              <i class="fa-solid fa-volume-high text-black text-[10px]" id="voice-toggle-icon"></i>
               <span class="hidden sm:inline" id="voice-toggle-text">Voz ON</span>
             </button>
 
@@ -160,9 +161,9 @@
               id="btn-send"
               type="submit" 
               title="Enviar mensaje"
-              class="w-9 h-9 rounded-full bg-[#6F9279] hover:bg-[#5B7B64] text-white flex items-center justify-center transition shrink-0 shadow-xs"
+              class="w-9 h-9 rounded-full bg-black hover:bg-neutral-800 text-white flex items-center justify-center transition shrink-0 shadow-xs"
             >
-              <i class="fa-solid fa-arrow-up text-sm"></i>
+              <i class="fa-solid fa-arrow-up text-white text-sm"></i>
             </button>
           </form>
 
@@ -319,7 +320,7 @@
           <!-- KPI 1: Visualizaciones y Visitantes -->
           <div class="bg-[#F6F3EC] border border-[#E2DDD3] rounded-xl p-2.5">
             <div class="flex items-center justify-between text-[11px] text-[#6B706C] mb-0.5">
-              <span>👁️ Visualizaciones</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-eye text-black text-xs"></i> Visualizaciones</span>
               <span class="text-[10px] bg-[#EAE5DC] text-[#4A504C] px-1.5 py-0.5 rounded font-semibold" id="an-visitors">0 únicos</span>
             </div>
             <div class="text-lg font-extrabold text-[#2C302E]" id="an-pageviews">0</div>
@@ -329,7 +330,7 @@
           <!-- KPI 2: Clics en Pedir por WhatsApp -->
           <div class="bg-[#E5EFE7] border border-[#C6DBC9] rounded-xl p-2.5">
             <div class="flex items-center justify-between text-[11px] text-[#2F4B38] mb-0.5">
-              <span class="font-semibold">📲 Clic en Pedir WA</span>
+              <span class="font-semibold flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-black text-xs"></i> Clic en Pedir WA</span>
               <span class="text-[10px] bg-[#FFFFFF]/80 text-[#2F4B38] px-1.5 py-0.5 rounded font-bold" id="an-conv-rate">0% conv.</span>
             </div>
             <div class="text-lg font-extrabold text-[#2F4B38]" id="an-wa-clicks">0</div>
@@ -339,7 +340,7 @@
           <!-- KPI 3: Carritos Abandonados -->
           <div class="bg-[#F5EAE0] border border-[#E4D1C0] rounded-xl p-2.5">
             <div class="flex items-center justify-between text-[11px] text-[#7A5438] mb-0.5">
-              <span class="font-semibold">🛒 Carrito Abandonado</span>
+              <span class="font-semibold flex items-center gap-1.5"><i class="fa-solid fa-cart-shopping text-black text-xs"></i> Carrito Abandonado</span>
               <span class="text-[10px] bg-[#FFFFFF]/80 text-[#7A5438] px-1.5 py-0.5 rounded font-bold" id="an-abandon-rate">0%</span>
             </div>
             <div class="flex items-baseline gap-1.5">
@@ -352,7 +353,7 @@
           <!-- KPI 4: Permanencia y Detección de Clics -->
           <div class="bg-[#E8F0F6] border border-[#C9D9E6] rounded-xl p-2.5">
             <div class="flex items-center justify-between text-[11px] text-[#2D4A60] mb-0.5">
-              <span class="font-semibold">⏱️ Permanencia y Clics</span>
+              <span class="font-semibold flex items-center gap-1.5"><i class="fa-regular fa-clock text-black text-xs"></i> Permanencia y Clics</span>
               <span class="text-[10px] bg-[#FFFFFF]/80 text-[#2D4A60] px-1.5 py-0.5 rounded font-bold" id="an-avg-clicks">0 clics/vis.</span>
             </div>
             <div class="flex items-baseline justify-between">
@@ -367,11 +368,11 @@
         <div class="bg-[#F9F7F3] border border-[#E2DDD3] rounded-xl p-3">
           <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2">
             <h3 class="text-xs font-bold text-[#2C302E] flex items-center gap-1.5">
-              <i class="fa-solid fa-bullhorn text-[#4A7696]"></i>
+              <i class="fa-solid fa-bullhorn text-black"></i>
               <span>Origen de Visitas y Rendimiento por Anuncio Específico</span>
             </h3>
             <button type="button" onclick="document.getElementById('utm-links-box').classList.toggle('hidden')" class="text-[10px] px-2 py-0.5 rounded-lg bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#2D4A60] border border-[#C5D8E8] font-bold flex items-center gap-1 transition">
-              <i class="fa-solid fa-link"></i> Links por Anuncio
+              <i class="fa-solid fa-link text-black text-xs"></i> Links por Anuncio
             </button>
           </div>
 
@@ -382,25 +383,25 @@
             </p>
             <div class="space-y-1.5">
               <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2 py-1">
-                <span class="truncate font-semibold text-[#2C302E]">🎬 Reel 1: Dolor Cervical (IG Ads)</span>
+                <span class="truncate font-semibold text-[#2C302E] flex items-center gap-1"><i class="fa-solid fa-play text-black text-[10px]"></i> Reel 1: Dolor Cervical (IG Ads)</span>
                 <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen=Instagram_Ads&anuncio=Reel_1_Dolor_Cervical', this)" class="px-2 py-0.5 rounded bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] font-bold text-[10px] shrink-0">
                   Copiar Link
                 </button>
               </div>
               <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2 py-1">
-                <span class="truncate font-semibold text-[#2C302E]">🎬 Reel 2: Pack x2 Ahorro (FB Ads)</span>
+                <span class="truncate font-semibold text-[#2C302E] flex items-center gap-1"><i class="fa-solid fa-play text-black text-[10px]"></i> Reel 2: Pack x2 Ahorro (FB Ads)</span>
                 <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen=Facebook_Ads&anuncio=Reel_2_Pack_x2_Ahorro', this)" class="px-2 py-0.5 rounded bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] font-bold text-[10px] shrink-0">
                   Copiar Link
                 </button>
               </div>
               <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2 py-1">
-                <span class="truncate font-semibold text-[#2C302E]">🎬 Reel 3: Densidad y Rebote (IG Ads)</span>
+                <span class="truncate font-semibold text-[#2C302E] flex items-center gap-1"><i class="fa-solid fa-play text-black text-[10px]"></i> Reel 3: Densidad y Rebote (IG Ads)</span>
                 <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen=Instagram_Ads&anuncio=Reel_3_Densidad_Rebote', this)" class="px-2 py-0.5 rounded bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] font-bold text-[10px] shrink-0">
                   Copiar Link
                 </button>
               </div>
               <div class="flex items-center justify-between gap-2 bg-[#E8F0F6] border border-[#C9D9E6] rounded-lg px-2 py-1">
-                <span class="truncate font-semibold text-[#2D4A60]">⚙️ Fórmula Dinámica Meta Ads (Detecta cualquier anuncio solo)</span>
+                <span class="truncate font-semibold text-[#2D4A60] flex items-center gap-1"><i class="fa-solid fa-bolt text-black text-[10px]"></i> Fórmula Dinámica Meta Ads (Detecta cualquier anuncio solo)</span>
                 <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen={{site_source_name}}&anuncio={{ad.name}}', this)" class="px-2 py-0.5 rounded bg-[#FFFFFF] hover:bg-[#DCE8DE] text-[#2D4A60] border border-[#BFD3C3] font-bold text-[10px] shrink-0">
                   Copiar Fórmula
                 </button>
@@ -413,10 +414,10 @@
               <thead>
                 <tr class="border-b border-[#E2DDD3] text-[#6B706C]">
                   <th class="py-1.5 pr-2">Anuncio / Origen</th>
-                  <th class="py-1.5 px-1 text-center">👁️ Visitas</th>
-                  <th class="py-1.5 px-1 text-center">⏱️ Perm.</th>
-                  <th class="py-1.5 px-1 text-center text-[#2F4B38]">📲 Pedidos WA</th>
-                  <th class="py-1.5 pl-1 text-center text-[#7A5438]">🛒 Aband.</th>
+                  <th class="py-1.5 px-1 text-center"><i class="fa-solid fa-eye text-black text-[10px] mr-1"></i>Visitas</th>
+                  <th class="py-1.5 px-1 text-center"><i class="fa-regular fa-clock text-black text-[10px] mr-1"></i>Perm.</th>
+                  <th class="py-1.5 px-1 text-center text-[#2F4B38]"><i class="fa-brands fa-whatsapp text-black text-[10px] mr-1"></i>Pedidos WA</th>
+                  <th class="py-1.5 pl-1 text-center text-[#7A5438]"><i class="fa-solid fa-cart-arrow-down text-black text-[10px] mr-1"></i>Aband.</th>
                 </tr>
               </thead>
               <tbody id="an-ads-tbody" class="divide-y divide-[#EFECE4]">
@@ -430,7 +431,7 @@
         <div class="bg-[#F9F7F3] border border-[#E2DDD3] rounded-xl p-3">
           <div class="flex items-center justify-between mb-2">
             <h3 class="text-xs font-bold text-[#2C302E] flex items-center gap-1.5">
-              <i class="fa-solid fa-ranking-star text-[#7A5438]"></i>
+              <i class="fa-solid fa-ranking-star text-black"></i>
               <span>Productos Más Vistos, Pedidos y Abandonos</span>
             </h3>
             <span class="text-[10px] text-[#6B706C]" id="an-add-to-cart-total">0 agregados al carrito</span>
@@ -440,10 +441,10 @@
               <thead>
                 <tr class="border-b border-[#E2DDD3] text-[#6B706C]">
                   <th class="py-1.5 pr-2">Producto</th>
-                  <th class="py-1.5 px-1.5 text-center">👁️ Vistas</th>
-                  <th class="py-1.5 px-1.5 text-center">🛒 Carrito</th>
-                  <th class="py-1.5 px-1.5 text-center text-[#2F4B38]">📲 Pedidos</th>
-                  <th class="py-1.5 pl-1.5 text-center text-[#7A5438]">⚠️ Aband.</th>
+                  <th class="py-1.5 px-1.5 text-center"><i class="fa-solid fa-eye text-black text-[10px] mr-1"></i>Vistas</th>
+                  <th class="py-1.5 px-1.5 text-center"><i class="fa-solid fa-cart-plus text-black text-[10px] mr-1"></i>Carrito</th>
+                  <th class="py-1.5 px-1.5 text-center text-[#2F4B38]"><i class="fa-brands fa-whatsapp text-black text-[10px] mr-1"></i>Pedidos</th>
+                  <th class="py-1.5 pl-1.5 text-center text-[#7A5438]"><i class="fa-solid fa-triangle-exclamation text-black text-[10px] mr-1"></i>Aband.</th>
                 </tr>
               </thead>
               <tbody id="an-products-tbody" class="divide-y divide-[#EFECE4]">
@@ -502,8 +503,8 @@
       <div class="bg-[#E8F0F6] border border-[#C9D9E6] rounded-2xl p-4 space-y-2">
         <div class="flex items-center justify-between">
           <h3 class="font-bold text-xs sm:text-sm text-[#2D4A60] flex items-center gap-2">
-            <i class="fa-brands fa-telegram text-base text-[#4A7696]"></i>
-            <span>6. Marcos: Usalo desde tu Celular por Telegram (Con Voz 🎙️)</span>
+            <i class="fa-brands fa-telegram text-base text-black"></i>
+            <span>6. Marcos: Usalo desde tu Celular por Telegram (Con Voz)</span>
           </h3>
           <button onclick="openConfigModal()" class="text-xs underline text-[#3B6280] hover:text-[#1F374A] font-semibold">
             Conectar Bot
@@ -586,7 +587,7 @@
       const txt = document.getElementById('selected-files-text');
       if (selectedFiles.length > 0) {
         bar.classList.remove('hidden');
-        txt.textContent = `${selectedFiles.length} archivo(s) seleccionado(s) en orden: ${selectedFiles.join(' ➔ ')}`;
+        txt.textContent = `${selectedFiles.length} archivo(s) seleccionado(s) en orden: ${selectedFiles.join(' -> ')}`;
       } else {
         bar.classList.add('hidden');
       }
@@ -803,42 +804,42 @@
           if (chatHistory.length === 0) {
             chatBox.innerHTML = `
               <div class="h-full flex flex-col items-center justify-center text-center py-8 px-4 max-w-lg mx-auto">
-                <div class="w-12 h-12 rounded-2xl bg-[#E8F0E9] text-[#2F4B38] flex items-center justify-center text-xl shadow-xs mb-3">
-                  <i class="fa-solid fa-sparkles text-lg"></i>
+                <div class="w-12 h-12 rounded-2xl bg-[#EAE7DF] text-black flex items-center justify-center text-xl shadow-xs mb-3">
+                  <i class="fa-solid fa-sparkles text-black text-lg"></i>
                 </div>
-                <h2 class="text-xl sm:text-2xl font-bold text-[#2C302E]">Hola Marcos 👋</h2>
+                <h2 class="text-xl sm:text-2xl font-bold text-[#2C302E]">Hola Marcos</h2>
                 <p class="text-xs sm:text-sm text-[#6B706C] mt-1 mb-6 max-w-md">
                   ¿En qué te ayudo hoy con tu tienda o tus campañas de almohadas?
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full text-left">
-                  <button type="button" onclick="sendQuickCommand('Armame un Reel sin voz para alivio cervical con mis archivos reales')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
-                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
-                      <span class="text-sm">🎬</span>
+                  <button type="button" onclick="sendQuickCommand('Armame un Reel sin voz para alivio cervical con mis archivos reales')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-black transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-black">
+                      <i class="fa-solid fa-film text-black text-sm"></i>
                       <span>Armar Reel Cervical</span>
                     </div>
                     <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">Video 9:16 sin voz para dolor de cuello y postura</p>
                   </button>
 
-                  <button type="button" onclick="sendQuickCommand('Armame un Reel sin voz de oferta Pack x2 Ahorro con mis archivos')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
-                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
-                      <span class="text-sm">📦</span>
+                  <button type="button" onclick="sendQuickCommand('Armame un Reel sin voz de oferta Pack x2 Ahorro con mis archivos')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-black transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-black">
+                      <i class="fa-solid fa-box text-black text-sm"></i>
                       <span>Armar Reel Pack x2</span>
                     </div>
                     <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">Video 9:16 enfocado en ahorro familiar y envío gratis</p>
                   </button>
 
-                  <button type="button" onclick="sendQuickCommand('Mostrame la analítica de mi tienda WhatsApp: visualizaciones, clics en pedir, carritos abandonados y productos más vistos')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
-                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
-                      <span class="text-sm">📈</span>
+                  <button type="button" onclick="sendQuickCommand('Mostrame la analítica de mi tienda WhatsApp: visualizaciones, clics en pedir, carritos abandonados y productos más vistos')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-black transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-black">
+                      <i class="fa-solid fa-chart-line text-black text-sm"></i>
                       <span>Analítica de la Tienda</span>
                     </div>
                     <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">Rendimiento por anuncio, visitas y carritos abandonados</p>
                   </button>
 
-                  <button type="button" onclick="sendQuickCommand('Calculame los costos, ganancia limpia, devoluciones y CPA máximo')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
-                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
-                      <span class="text-sm">🧮</span>
+                  <button type="button" onclick="sendQuickCommand('Calculame los costos, ganancia limpia, devoluciones y CPA máximo')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-black transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-black">
+                      <i class="fa-solid fa-calculator text-black text-sm"></i>
                       <span>Costos y Ganancia Limpia</span>
                     </div>
                     <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">CPA máximo permitido por producto y margen neto</p>
@@ -850,14 +851,14 @@
             chatBox.innerHTML = chatHistory.map(m => {
               const isUser = m.role === 'user';
               const badge = m.source === 'telegram' 
-                ? '<span class="text-[9px] bg-[#E8F0F6] text-[#2D4A60] border border-[#C9D9E6] px-1.5 py-0.2 rounded font-semibold ml-1"><i class="fa-brands fa-telegram"></i> Telegram</span>' 
+                ? '<span class="text-[9px] bg-[#FFFFFF] text-black border border-[#DDD7CD] px-1.5 py-0.2 rounded font-semibold ml-1"><i class="fa-brands fa-telegram text-black"></i> Telegram</span>' 
                 : '';
 
               if (isUser) {
                 return `
                   <div class="flex justify-end">
-                    <div class="max-w-[85%] sm:max-w-[75%] rounded-2xl rounded-tr-xs px-4 py-3 bg-[#E8F0E9] text-[#1E2D22] border border-[#D5E3D8] shadow-xs text-xs sm:text-sm leading-relaxed">
-                      <div class="flex items-center justify-between gap-2 mb-1 text-[10px] text-[#4A6B54]">
+                    <div class="max-w-[85%] sm:max-w-[75%] rounded-2xl rounded-tr-xs px-4 py-3 bg-[#EAE7DF] text-[#1E2D22] border border-[#DDD7CD] shadow-xs text-xs sm:text-sm leading-relaxed">
+                      <div class="flex items-center justify-between gap-2 mb-1 text-[10px] text-black">
                         <span class="font-bold">Marcos ${badge}</span>
                         <span class="text-[9px] opacity-75">${m.timestamp || ''}</span>
                       </div>
@@ -868,7 +869,7 @@
               } else {
                 const voiceHtml = m.voice ? `
                   <div class="mt-2.5 p-2 rounded-xl bg-[#F6F3EC] border border-[#DDD7CD] flex items-center gap-2 max-w-sm">
-                    <i class="fa-solid fa-volume-high text-[#355670] text-xs ml-1"></i>
+                    <i class="fa-solid fa-volume-high text-black text-xs ml-1"></i>
                     <audio src="${m.voice}" controls class="h-7 w-full"></audio>
                   </div>
                 ` : '';
@@ -876,8 +877,8 @@
                   <div class="mt-3 p-3 rounded-xl bg-[#FAF8F5] border border-[#DDD7CD] inline-block shadow-xs">
                     <video src="${m.reel}" controls class="w-48 rounded-lg mx-auto border border-[#CFC8BC] shadow-xs"></video>
                     <div class="mt-2.5 flex justify-center">
-                      <a href="${m.reel}" download class="bg-[#6F9279] hover:bg-[#5B7B64] text-white font-bold text-xs px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5 shadow-xs transition">
-                        <i class="fa-solid fa-download"></i> Descargar Reel MP4
+                      <a href="${m.reel}" download class="bg-black hover:bg-neutral-800 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5 shadow-xs transition">
+                        <i class="fa-solid fa-download text-white"></i> <span>Descargar Reel MP4</span>
                       </a>
                     </div>
                   </div>
@@ -885,8 +886,8 @@
 
                 return `
                   <div class="flex items-start gap-3 assistant-msg-container">
-                    <div class="w-7 h-7 rounded-full bg-[#E8F0E9] text-[#2F4B38] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs">
-                      <i class="fa-solid fa-sparkles text-[11px]"></i>
+                    <div class="w-7 h-7 rounded-full bg-[#EAE7DF] text-black flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs">
+                      <i class="fa-solid fa-sparkles text-black text-[11px]"></i>
                     </div>
                     <div class="flex-1 min-w-0 max-w-[90%] sm:max-w-[85%]">
                       <div class="flex items-center gap-2 mb-1 text-[10px] text-[#7A7F7C]">
@@ -899,8 +900,8 @@
                         ${reelHtml}
                       </div>
                       <div class="mt-1 flex items-center gap-3 text-[11px] text-[#8A8F8B]">
-                        <button type="button" onclick="copyMessageText(this)" class="hover:text-[#2C302E] flex items-center gap-1 transition py-0.5">
-                          <i class="fa-regular fa-copy text-xs"></i> <span>Copiar</span>
+                        <button type="button" onclick="copyMessageText(this)" class="hover:text-black flex items-center gap-1 transition py-0.5">
+                          <i class="fa-regular fa-copy text-black text-xs"></i> <span>Copiar</span>
                         </button>
                       </div>
                     </div>
@@ -1024,9 +1025,9 @@
 
     function copyTrackingLink(urlText, btnEl) {
       navigator.clipboard.writeText(urlText).then(() => {
-        const orig = btnEl.textContent;
-        btnEl.textContent = '✓ Copiado';
-        setTimeout(() => { btnEl.textContent = orig; }, 1800);
+        const orig = btnEl.innerHTML;
+        btnEl.innerHTML = '<i class="fa-solid fa-check text-black text-xs"></i> Copiado';
+        setTimeout(() => { btnEl.innerHTML = orig; }, 1800);
       }).catch(() => {});
     }
 
@@ -1052,8 +1053,8 @@
           return `
             <tr class="hover:bg-[#F6F3EC]">
               <td class="py-1.5 pr-2">
-                <div class="font-semibold text-[#2C302E] flex items-center gap-1 truncate max-w-[165px]" title="${ad.adName}">
-                  <span>${isWinner ? '🏆' : '📣'}</span>
+                <div class="font-semibold text-[#2C302E] flex items-center gap-1.5 truncate max-w-[165px]" title="${ad.adName}">
+                  <i class="fa-solid ${isWinner ? 'fa-trophy text-black' : 'fa-bullhorn text-black'} text-[11px]"></i>
                   <span class="truncate">${ad.adName}</span>
                 </div>
                 <span class="inline-block text-[9px] bg-[#E8F0F6] text-[#355670] border border-[#C9D9E6] px-1.5 py-0.2 rounded font-semibold mt-0.5">
@@ -1084,10 +1085,10 @@
             <tr class="hover:bg-[#F6F3EC]">
               <td class="py-1.5 pr-2">
                 <div class="font-semibold text-[#2C302E] truncate max-w-[165px]" title="${p.name}">
-                  ${idx === 0 ? '🔥 ' : ''}${p.name}
+                  ${idx === 0 ? '<i class="fa-solid fa-star text-black text-[10px] mr-1"></i>' : ''}${p.name}
                 </div>
                 <div class="w-full bg-[#EAE5DC] h-1.5 rounded-full mt-1 overflow-hidden">
-                  <div class="bg-[#6F9279] h-full rounded-full" style="width:${pct}%"></div>
+                  <div class="bg-black h-full rounded-full" style="width:${pct}%"></div>
                 </div>
               </td>
               <td class="py-1.5 px-1.5 text-center font-bold text-[#2C302E]">${p.views || 0}</td>
@@ -1115,15 +1116,15 @@
             const dRem = durSec % 60;
             const durTxt = `${dMin}m ${String(dRem).padStart(2, '0')}s`;
             const adBadge = s.adName
-              ? `<span class="inline-block bg-[#E8F0F6] text-[#2D4A60] border border-[#C9D9E6] text-[9px] font-bold px-1.5 py-0.2 rounded">📣 ${s.adName} (${s.source || 'Ads'})</span>`
+              ? `<span class="inline-block bg-[#E8F0F6] text-[#2D4A60] border border-[#C9D9E6] text-[9px] font-bold px-1.5 py-0.2 rounded"><i class="fa-solid fa-bullhorn text-black mr-1"></i>${s.adName} (${s.source || 'Ads'})</span>`
               : '';
             let badge = '';
             if (s.status === 'whatsapp_order' || s.type === 'whatsapp_order') {
-              badge = `<span class="bg-[#DCE8DE] text-[#2F4B38] border border-[#BFD3C3] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">📲 Pidió WA ($${(s.cartValue || 0).toLocaleString('es-AR')})</span>`;
+              badge = `<span class="bg-[#DCE8DE] text-[#2F4B38] border border-[#BFD3C3] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 flex items-center gap-1"><i class="fa-brands fa-whatsapp text-black"></i> Pidió WA ($${(s.cartValue || 0).toLocaleString('es-AR')})</span>`;
             } else if (s.status === 'abandoned_cart' || s.type === 'abandoned_cart') {
-              badge = `<span class="bg-[#F5EAE0] text-[#7A5438] border border-[#E4D1C0] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">🛒 Abandonó ($${(s.cartValue || 0).toLocaleString('es-AR')})</span>`;
+              badge = `<span class="bg-[#F5EAE0] text-[#7A5438] border border-[#E4D1C0] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 flex items-center gap-1"><i class="fa-solid fa-cart-arrow-down text-black"></i> Abandonó ($${(s.cartValue || 0).toLocaleString('es-AR')})</span>`;
             } else {
-              badge = `<span class="bg-[#E8F0F6] text-[#355670] border border-[#C9D9E6] text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0">👁️ Miró catálogo</span>`;
+              badge = `<span class="bg-[#E8F0F6] text-[#355670] border border-[#C9D9E6] text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0 flex items-center gap-1"><i class="fa-solid fa-eye text-black"></i> Miró catálogo</span>`;
             }
             return `
               <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2.5 py-1.5 text-[11px]">

@@ -483,9 +483,9 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
 
         try:
             generated_reel = generate_visual_reel(angle=angle, selected_files=selected_files)
-            reply = f"🎬 Listo Marcos, acá tenés tu Reel (**{angle_desc}**):"
+            reply = f"Listo Marcos, acá tenés tu Reel (**{angle_desc}**):"
         except Exception as e:
-            reply = f"⚠️ Ocurrió un error al ensamblar el Reel con tus archivos: {e}"
+            reply = f"Ocurrió un error al ensamblar el Reel con tus archivos: {e}"
 
     # 2. INTENCIÓN: CAMBIAR / ACTUALIZAR PRECIO O COSTO DE UN PRODUCTO
     elif any(k in text_lower for k in ["cambia el precio", "cambiar precio", "subi el", "subí el", "actualizar precio", "pone el", "poné el", "/precio"]):
@@ -517,8 +517,8 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
                 save_state(state)
                 m = calculate_product_metrics(target_prod, biz)
                 reply = (
-                    f"✅ **Costo actualizado para {target_prod['name']}**\n"
-                    f"• Costo anterior: ${old_val:,} ➔ **Nuevo costo: ${new_val:,}**\n"
+                    f"**Costo actualizado para {target_prod['name']}**\n"
+                    f"• Costo anterior: ${old_val:,} -> **Nuevo costo: ${new_val:,}**\n"
                     f"• **Ganancia limpia (c/ transf.):** ${m['netMarginTransfer']:,} | **CPA Máx Ads:** ${m['cpaMax']:,}"
                 ).replace(",", ".")
             else:
@@ -527,8 +527,8 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
                 save_state(state)
                 m = calculate_product_metrics(target_prod, biz)
                 reply = (
-                    f"✅ **Precio actualizado para {target_prod['name']}**\n"
-                    f"• Anterior: ${old_val:,} ➔ **Nuevo: ${new_val:,}** (**${m['transferPrice']:,}** c/ 15% Transf.)\n"
+                    f"**Precio actualizado para {target_prod['name']}**\n"
+                    f"• Anterior: ${old_val:,} -> **Nuevo: ${new_val:,}** (**${m['transferPrice']:,}** c/ 15% Transf.)\n"
                     f"• **Ganancia limpia:** ${m['netMarginTransfer']:,} | **CPA Máx Ads:** ${m['cpaMax']:,}"
                 ).replace(",", ".")
         else:
@@ -539,12 +539,12 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
     # 3. INTENCIÓN: CALCULAR COSTOS, DEVOLUCIONES Y CPA MÁXIMO
     elif any(k in text_lower for k in ["costo", "margen", "ganancia", "cpa", "devolucion", "devolución", "rentabilidad", "/costos"]):
         lines = [
-            "📊 **Resumen de Costos, Ganancia Limpia y CPA Máximo:**\n"
+            "**Resumen de Costos, Ganancia Limpia y CPA Máximo:**\n"
         ]
         for p in products:
             m = calculate_product_metrics(p, biz)
             lines.append(
-                f"🔹 **{m['name']}**: Venta **${m['price']:,}** (${m['transferPrice']:,} Transf.) • Ganancia Limpia: **+${m['netMarginTransfer']:,}** • CPA Máx: **${m['cpaMax']:,}**"
+                f"• **{m['name']}**: Venta **${m['price']:,}** (${m['transferPrice']:,} Transf.) | Ganancia Limpia: **+${m['netMarginTransfer']:,}** | CPA Máx: **${m['cpaMax']:,}**"
             )
         reply = "\n".join(lines).replace(",", ".")
 
@@ -554,13 +554,13 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
         ad_lines = []
         for idx, ad in enumerate(sa.get("topAds", [])[:3], 1):
             ad_lines.append(
-                f"   {idx}. **{ad['adName']}** ({ad['source']}): {ad['views']} vis. • 📲 **{ad['whatsappOrders']} pedidos ({ad['conversionRate']}%)** • 🛒 {ad['abandoned']} aband."
+                f"   {idx}. **{ad['adName']}** ({ad['source']}): {ad['views']} vis. | **{ad['whatsappOrders']} pedidos ({ad['conversionRate']}%)** | {ad['abandoned']} aband."
             )
-        ads_section = ("\n\n📣 **Por Anuncio Específico:**\n" + "\n".join(ad_lines)) if ad_lines else ""
+        ads_section = ("\n\n**Por Anuncio Específico:**\n" + "\n".join(ad_lines)) if ad_lines else ""
         reply = (
-            f"📈 **Resumen de tu Tienda (`tienda-marcos.pages.dev`):**\n"
-            f"• 👁️ **Visitas:** **{sa['pageViews']}** ({sa['uniqueVisitors']} únicos) • ⏱️ **Permanencia:** **{sa['avgDurationFormatted']}**\n"
-            f"• 📲 **Pedidos WA:** **{sa['whatsappCheckoutClicks']}** ({sa['conversionRatePct']}% conv.) • 🛒 **Abandonados:** **{sa['abandonedCartsCount']}** (${sa['abandonedCartsValue']:,})"
+            f"**Resumen de tu Tienda (`tienda-marcos.pages.dev`):**\n"
+            f"• **Visitas:** **{sa['pageViews']}** ({sa['uniqueVisitors']} únicos) | **Permanencia:** **{sa['avgDurationFormatted']}**\n"
+            f"• **Pedidos WA:** **{sa['whatsappCheckoutClicks']}** ({sa['conversionRatePct']}% conv.) | **Abandonados:** **{sa['abandonedCartsCount']}** (${sa['abandonedCartsValue']:,})"
             f"{ads_section}"
         ).replace(",", ".")
 
@@ -584,16 +584,16 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
         rules.insert(0, new_item)
         mem["learnedRules"] = rules[:30]
         save_state(state)
-        reply = f"🧠 **Aprendido y guardado en mi memoria permanente, Marcos:**\n> *\"{new_item['text']}\"*"
+        reply = f"**Aprendido y guardado en mi memoria permanente, Marcos:**\n> *\"{new_item['text']}\"*"
 
     elif any(k in text_lower for k in ["que sabes", "qué sabés", "que aprendiste", "qué aprendiste", "tu memoria", "mi memoria", "/memoria"]):
         mem = state.get("agentMemory", {})
         rules = mem.get("learnedRules", [])
         if not rules:
-            reply = "🧠 Todavía no me pediste que guarde reglas específicas. Decime por ejemplo: *\"Acordate que los jueves reparto gratis en Nueva Córdoba\"*."
+            reply = "Todavía no me pediste que guarde reglas específicas. Decime por ejemplo: *\"Acordate que los jueves reparto gratis en Nueva Córdoba\"*."
         else:
             r_lines = [f"• {r['text']} *({r.get('date', '')})*" for r in rules[:8]]
-            reply = "🧠 **Marcos, esto es lo que tengo aprendido en mi memoria permanente:**\n\n" + "\n".join(r_lines)
+            reply = "**Marcos, esto es lo que tengo aprendido en mi memoria permanente:**\n\n" + "\n".join(r_lines)
 
     # 5. INTENCIÓN: AUDITAR CAMPAÑA DE META ADS (EL SEMÁFORO + APRENDIZAJE HISTÓRICO)
     elif any(k in text_lower for k in ["gaste", "gasté", "audita", "auditá", "campaña", "presupuesto", "meseta", "semaforo", "semáforo", "/auditar"]):
@@ -612,19 +612,19 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
 
         if sales == 0 and spend >= 12000:
             verdict = "ROJO"
-            semaforo = "🔴 SEMÁFORO ROJO: PAUSAR O CAMBIAR ANUNCIO"
+            semaforo = "SEMÁFORO ROJO: PAUSAR O CAMBIAR ANUNCIO"
             accion = (
                 f"• Gastaste **${spend:,}** ({clicks} clics, 0 ventas). Apagá ese anuncio y probá un Reel nuevo apuntando a `tienda-marcos.pages.dev`."
             )
         elif sales > 0 and cpa_real <= 7500:
             verdict = "VERDE"
-            semaforo = "🟢 SEMÁFORO VERDE: CAMPAÑA RENTABLE"
+            semaforo = "SEMÁFORO VERDE: CAMPAÑA RENTABLE"
             accion = (
                 f"• Gastaste **${spend:,}** con **{sales} venta(s)** (CPA: **${cpa_real:,}**). Si querés escalar, subí máximo +20% cada 48 hs (**${scaled_budget:,}/día**)."
             )
         else:
             verdict = "AMARILLO"
-            semaforo = "🟡 SEMÁFORO AMARILLO: MANTENER Y CERRAR EN WHATSAPP"
+            semaforo = "SEMÁFORO AMARILLO: MANTENER Y CERRAR EN WHATSAPP"
             accion = (
                 f"• Gastaste **${spend:,}** ({clicks} clics, {sales} venta(s), CPA: ${cpa_real:,}). Mantené el presupuesto 48 hs más y hacé seguimiento a las consultas abiertas."
             )
@@ -642,17 +642,17 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
         mem["campaignHistory"] = chist[:20]
         save_state(state)
 
-        reply = f"🚦 **{semaforo}**\n{accion}".replace(",", ".")
+        reply = f"**{semaforo}**\n{accion}".replace(",", ".")
 
     # 6. INTENCIÓN: GUIONES DE CIERRE DE WHATSAPP / ANTI-VISTO / COPYS
     elif any(k in text_lower for k in ["visto", "whatsapp", "cliente", "responder", "respuesta", "objecion", "copy", "/cierre"]):
         reply = (
-            "💬 **Guiones Probados de Cierre para WhatsApp (Copiar y Pegar):**\n\n"
-            "1️⃣ **Cuando preguntan y clavan el visto (Mandar a las 4 o 24 hs):**\n"
+            "**Guiones Probados de Cierre para WhatsApp (Copiar y Pegar):**\n\n"
+            "1. **Cuando preguntan y clavan el visto (Mandar a las 4 o 24 hs):**\n"
             "> *\"¡Hola! ¿Cómo estás? Te escribo cortito porque hoy a las 15hs sale el cadete a repartir por tu zona en Córdoba. Me quedan los últimos 2 Packs x2 con el 15% OFF por transferencia ($55.165 las dos almohadas). ¿Querés que te separe uno para llevártelo hoy?\"*\n\n"
-            "2️⃣ **Cuando dicen \"Lo consulto con mi pareja / Lo pienso y te aviso\":**\n"
+            "2. **Cuando dicen \"Lo consulto con mi pareja / Lo pienso y te aviso\":**\n"
             "> *\"¡Dale, genial! Comentale que el Pack x2 Cervicales les queda en $55.165 finales con transferencia (es decir, $27.580 cada almohada viscoelástica de alta densidad, menos de la mitad que en cualquier colchonería) y lo reciben en el día en Córdoba. Avisame antes de las 16hs así llego a incluirlos en el reparto de hoy.\"* \n\n"
-            "3️⃣ **Cuando preguntan \"¿Tienen local para ir a verlas?\":**\n"
+            "3. **Cuando preguntan \"¿Tienen local para ir a verlas?\":**\n"
             "> *\"Trabajamos directo de depósito con entregas a domicilio en toda Córdoba Capital para poder mantenerte el precio de fábrica ($55.165 el Pack x2 con transferencia). Vienen en su bolsa cerrada con garantía y podés verificar la densidad y calidad en la puerta de tu casa al recibirlas.\"* "
         )
 
@@ -668,7 +668,7 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
                     f"Vendés almohadas viscoelásticas en {biz.get('city')}. "
                     f"Descuento transferencia: {biz.get('transferDiscountPercent')}%. "
                     f"Reglas aprendidas en memoria:\n{mem_context}\n"
-                    f"Respondé corto, directo, práctico y en español argentino hablándole a Marcos."
+                    f"Respondé corto, directo, práctico y en español argentino hablándole a Marcos. No uses emojis."
                 )
                 payload = json.dumps({
                     "model": ai_cfg.get("model", "gpt-4o-mini"),
@@ -689,15 +689,15 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
                     res_data = json.loads(resp.read().decode("utf-8"))
                     reply = res_data["choices"][0]["message"]["content"]
             except Exception as e:
-                reply = f"⚠️ Error al consultar la API externa ({e})."
+                reply = f"Error al consultar la API externa ({e})."
         else:
             reply = (
-                "🤖 **Estoy listo para ejecutar tu orden.** Podés:\n\n"
-                "• 📎 **Subir clips de video o fotos reales de tu celular** (tocando el botón *'Subir Clips / Fotos Reales'* abajo) y decirme: *\"Armame un Reel con mis archivos\"*.\n"
-                "• 🧮 **Calcular Costos, Devoluciones y CPA:** Escribí *\"Calculame los costos y ganancias\"*.\n"
-                "• 💲 **Cambiar un precio o costo:** Escribí *\"Cambiá el precio del Pack x2 Cervicales a 66900\"*.\n"
-                "• 🚦 **Auditar Meta Ads:** Escribí *\"Gasté 10000, tuve 35 clics y 1 venta, auditá la campaña\"*.\n"
-                "• 💬 **Cerrar ventas en WhatsApp:** Escribí *\"Dame respuestas para clientes que clavan el visto\"*."
+                "**Estoy listo para ejecutar tu orden, Marcos.** Podés:\n\n"
+                "• **Subir clips de video o fotos reales de tu celular** (tocando el botón *'Subir Clips / Fotos'* arriba o en el clip) y decirme: *\"Armame un Reel con mis archivos\"*.\n"
+                "• **Calcular Costos, Devoluciones y CPA:** Escribí *\"Calculame los costos y ganancias\"*.\n"
+                "• **Cambiar un precio o costo:** Escribí *\"Cambiá el precio del Pack x2 Cervicales a 66900\"*.\n"
+                "• **Auditar Meta Ads:** Escribí *\"Gasté 10000, tuve 35 clics y 1 venta, auditá la campaña\"*.\n"
+                "• **Cerrar ventas en WhatsApp:** Escribí *\"Dame respuestas para clientes que clavan el visto\"*."
             )
 
     voice_mp3 = None
@@ -711,7 +711,7 @@ def execute_agent_instruction(user_text, source="panel", selected_files=None, ge
     now_str = datetime.now().strftime("%H:%M")
     state = load_state()
     hist = state.get("chatHistory", [])
-    user_label = f"🎙️ [Orden por Voz] {user_text}" if is_voice_input else user_text
+    user_label = f"[Orden por Voz] {user_text}" if is_voice_input else user_text
     hist.append({"role": "user", "source": source, "timestamp": now_str, "text": user_label})
     msg_obj = {"role": "assistant", "source": source, "timestamp": now_str, "text": reply}
     if generated_reel:
@@ -840,20 +840,20 @@ def telegram_polling_loop():
                                     is_voice_input=True
                                 )
                                 clean_reply = (
-                                    f"🎙️ Escuché tu orden: \"{transcribed}\"\n\n"
+                                    f"Escuché tu orden: \"{transcribed}\"\n\n"
                                     + res["reply"].replace("**", "").replace("*", "")
                                 )
                                 send_telegram_message(token, chat_id, clean_reply)
 
                                 if res.get("voiceOggPath") and os.path.exists(res["voiceOggPath"]):
-                                    send_telegram_voice(token, chat_id, res["voiceOggPath"], caption="🔊 Respuesta en voz del Agente")
+                                    send_telegram_voice(token, chat_id, res["voiceOggPath"], caption="Respuesta en voz del Agente")
 
                                 if res.get("reel"):
                                     video_full = os.path.join(REELS_DIR, res["reel"])
                                     if os.path.exists(video_full):
-                                        send_telegram_video(token, chat_id, video_full, caption=f"🎬 {res['reel']} (100% producto real, sin voz)")
+                                        send_telegram_video(token, chat_id, video_full, caption=f"Reel {res['reel']} (100% producto real, sin voz)")
                             except Exception as ve:
-                                send_telegram_message(token, chat_id, f"⚠️ No pude escuchar bien el audio ({ve}). ¿Podés repetir el mensaje de voz un poquito más claro?")
+                                send_telegram_message(token, chat_id, f"No pude escuchar bien el audio ({ve}). ¿Podés repetir el mensaje de voz un poquito más claro?")
                             continue
 
                         # 2. Si manda un VIDEO corto desde el celular por Telegram
@@ -863,7 +863,7 @@ def telegram_polling_loop():
                             send_telegram_message(
                                 token,
                                 chat_id,
-                                f"📎 ¡Clip de video real recibido ({saved_name}) y guardado intacto!\nMandame más clips/fotos o mandame un audio diciendo 'Armame el reel' para unirlos respetando 100% el producto."
+                                f"Clip de video real recibido ({saved_name}) y guardado intacto.\nMandame más clips/fotos o mandame un audio diciendo 'Armame el reel' para unirlos respetando 100% el producto."
                             )
                             continue
 
@@ -874,7 +874,7 @@ def telegram_polling_loop():
                             send_telegram_message(
                                 token,
                                 chat_id,
-                                f"📷 ¡Foto real de tu celular recibida ({saved_name}) y guardada intacta!\nMandame más fotos/clips o mandame un audio diciendo 'Armame el reel' para generar el video."
+                                f"Foto real de tu celular recibida ({saved_name}) y guardada intacta.\nMandame más fotos/clips o mandame un audio diciendo 'Armame el reel' para generar el video."
                             )
                             continue
 
@@ -888,12 +888,12 @@ def telegram_polling_loop():
                         send_telegram_message(token, chat_id, clean_reply)
 
                         if res.get("voiceOggPath") and os.path.exists(res["voiceOggPath"]):
-                            send_telegram_voice(token, chat_id, res["voiceOggPath"], caption="🔊 Respuesta en voz del Agente")
+                            send_telegram_voice(token, chat_id, res["voiceOggPath"], caption="Respuesta en voz del Agente")
 
                         if res.get("reel"):
                             video_full = os.path.join(REELS_DIR, res["reel"])
                             if os.path.exists(video_full):
-                                send_telegram_video(token, chat_id, video_full, caption=f"🎬 {res['reel']} (100% producto real, sin voz)")
+                                send_telegram_video(token, chat_id, video_full, caption=f"Reel {res['reel']} (100% producto real, sin voz)")
         except Exception as e:
             telegram_status["running"] = False
             telegram_status["lastError"] = str(e)
