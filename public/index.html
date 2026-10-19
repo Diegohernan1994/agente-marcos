@@ -58,51 +58,46 @@
   <!-- CONTENEDOR PRINCIPAL: CHAT A LA IZQUIERDA + PANEL DE MARCOS A LA DERECHA -->
   <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
 
-    <!-- COLUMNA IZQUIERDA / CENTRAL: CHAT DE MARCOS CON SU ASISTENTE (7 COLUMNAS) -->
-    <section class="lg:col-span-7 flex flex-col bg-[#EFECE4] border-r border-[#E2DDD3] h-full overflow-hidden">
+    <!-- COLUMNA IZQUIERDA / CENTRAL: CHAT DE MARCOS ESTILO CHATGPT / GEMINI / ISA (7 COLUMNAS) -->
+    <section class="lg:col-span-7 flex flex-col bg-[#FAF8F5] border-r border-[#E2DDD3] h-full overflow-hidden">
       
-      <!-- Botones de Acción Rápida de 1 Clic para Marcos -->
-      <div class="bg-[#F9F7F3] px-3 py-2.5 border-b border-[#E2DDD3] flex items-center gap-1.5 overflow-x-auto shrink-0">
-        <span class="text-[11px] text-[#6B706C] font-semibold mr-1 shrink-0">Accesos rápidos Marcos:</span>
-        <button onclick="document.getElementById('file-upload').click()" class="px-2.5 py-1 rounded-lg bg-[#DCE8DE] hover:bg-[#CCE0CF] text-[#2F4B38] text-xs font-bold whitespace-nowrap border border-[#BFD3C3] transition">
-          📎 1. Subir mis Clips/Fotos
-        </button>
-        <button onclick="sendQuickCommand('Armame un Reel sin voz para alivio cervical con mis archivos reales')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#DCE8DE] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
-          🎬 Armar Reel Cervical
-        </button>
-        <button onclick="sendQuickCommand('Armame un Reel sin voz de oferta Pack x2 Ahorro con mis archivos')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#DCE8DE] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
-          🎬 Armar Reel Pack x2
-        </button>
-        <button onclick="sendQuickCommand('Calculame los costos, ganancia limpia, devoluciones y CPA máximo')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F3E6DC] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
-          🧮 Mis Costos y Ganancias
-        </button>
-        <button onclick="sendQuickCommand('Gasté 10000 en anuncios, tuve 38 clics y 2 ventas, auditá mi campaña')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F3E6DC] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
-          🚦 Semáforo de mis Anuncios
-        </button>
-        <button onclick="sendQuickCommand('Mostrame la analítica de mi tienda WhatsApp: visualizaciones, clics en pedir, carritos abandonados y productos más vistos')" class="px-2.5 py-1 rounded-lg bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#2D4A60] text-xs font-bold whitespace-nowrap border border-[#C5D8E8] transition">
-          📈 Analítica de mi Tienda
-        </button>
-        <button onclick="sendQuickCommand('Dame guiones para cerrar ventas en WhatsApp cuando clavan el visto')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#E6EFF6] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
-          💬 Respuestas WhatsApp
-        </button>
-        <button onclick="clearChatHistory()" title="Limpiar mensajes del chat" class="ml-auto px-2.5 py-1 rounded-lg bg-[#F5E6E4] hover:bg-[#EBD0CC] text-[#9E4B42] text-xs font-bold whitespace-nowrap border border-[#E0C2BE] transition">
-          <i class="fa-solid fa-trash-can mr-1"></i>Limpiar Chat
+      <!-- Top Bar Minimalista y Limpio (Estilo ChatGPT / Gemini) -->
+      <div class="px-5 py-3 border-b border-[#EAE5DC] bg-[#FFFFFF]/80 backdrop-blur-sm flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-[#E8F0E9] text-[#2F4B38] flex items-center justify-center font-bold text-sm shadow-xs">
+            <i class="fa-solid fa-sparkles text-xs"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs sm:text-sm font-bold text-[#2C302E]">Asistente de Marcos</span>
+              <span class="inline-flex items-center gap-1 text-[10px] text-[#3B5E46] font-semibold bg-[#E8F0E9] px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#4A7C59] animate-pulse"></span>
+                <span>En línea</span>
+              </span>
+            </div>
+            <p class="text-[10px] text-[#7A7F7C]">Ventas • Meta Ads • Reels de Almohadas</p>
+          </div>
+        </div>
+
+        <button onclick="clearChatHistory()" title="Limpiar conversación" class="text-xs text-[#7A7F7C] hover:text-[#9E4B42] flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-[#F5E6E4] transition">
+          <i class="fa-regular fa-trash-can text-xs"></i>
+          <span class="font-medium hidden sm:inline">Limpiar chat</span>
         </button>
       </div>
 
-      <!-- Mensajes del Chat -->
-      <div id="chat-box" class="flex-1 overflow-y-auto p-4 space-y-3">
+      <!-- Mensajes del Chat / Hero ChatGPT si está vacío -->
+      <div id="chat-box" class="flex-1 overflow-y-auto px-4 sm:px-8 py-6 space-y-5">
         <!-- Renderizado dinámico -->
       </div>
 
-      <!-- Indicador de archivos seleccionados para el próximo Reel -->
-      <div id="selected-files-bar" class="hidden bg-[#DCE8DE] px-4 py-2 border-t border-[#BFD3C3] flex items-center justify-between text-xs">
-        <div class="flex items-center gap-2 text-[#2F4B38] font-medium truncate">
-          <i class="fa-solid fa-check-double"></i>
-          <span id="selected-files-text">0 archivos reales seleccionados para tu Reel</span>
+      <!-- Indicador sutil de archivos seleccionados para el próximo Reel -->
+      <div id="selected-files-bar" class="hidden bg-[#E8F0E9] px-5 py-2.5 border-t border-[#CFDFD2] flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2 text-[#2F4B38] font-semibold truncate">
+          <i class="fa-solid fa-check-double text-xs"></i>
+          <span id="selected-files-text">0 archivos seleccionados</span>
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <button onclick="buildReelFromSelected()" class="bg-[#5C7D66] hover:bg-[#4B6954] text-white font-bold px-3 py-1 rounded-lg text-xs">
+          <button onclick="buildReelFromSelected()" class="bg-[#5C7D66] hover:bg-[#4B6954] text-white font-bold px-3 py-1 rounded-lg text-xs shadow-xs transition">
             🎬 Armar mi Reel Ahora
           </button>
           <button onclick="clearSelectedFiles()" class="text-[#5A635E] hover:text-[#2C302E] text-xs underline">
@@ -114,58 +109,71 @@
       <!-- Input oculto para subir clips de video (.mp4, .mov, .webm) o fotos (.jpg, .png, .webp) -->
       <input id="file-upload" type="file" accept="video/*,image/*" multiple class="hidden" onchange="handleFilesUpload(event)" />
 
-      <!-- Barra de Escritura + Botón de Orden por Voz para Marcos -->
-      <form id="chat-form" class="p-3 bg-[#FFFFFF] border-t border-[#E2DDD3] flex items-center gap-2 shrink-0">
-        <button 
-          type="button"
-          onclick="document.getElementById('file-upload').click()"
-          title="Subir clips cortos de video o fotos reales de tu celular"
-          class="bg-[#F6F3EC] hover:bg-[#DCE8DE] text-[#466952] border border-[#DCD6CA] px-3 py-3 rounded-xl text-sm flex items-center gap-1.5 transition shrink-0"
-        >
-          <i class="fa-solid fa-paperclip"></i>
-          <span class="hidden xl:inline text-xs font-semibold text-[#3E4541]">Clips/Fotos</span>
-        </button>
+      <!-- Barra de Escritura: Cápsula Flotante (ChatGPT / Gemini / ISA Style) -->
+      <div class="p-3 sm:p-4 bg-[#FAF8F5] border-t border-[#EAE5DC] shrink-0">
+        <div class="max-w-3xl mx-auto">
+          <form id="chat-form" class="bg-[#FFFFFF] border border-[#DDD7CD] focus-within:border-[#6F9279] focus-within:ring-2 focus-within:ring-[#E8F0E9] rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 flex items-center gap-1.5 shadow-sm transition">
+            <!-- Botón de Adjuntar Archivos -->
+            <button 
+              type="button"
+              onclick="document.getElementById('file-upload').click()"
+              title="Adjuntar clips cortos o fotos reales"
+              class="w-9 h-9 rounded-xl hover:bg-[#F6F3EC] text-[#6B706C] hover:text-[#2C302E] flex items-center justify-center transition shrink-0"
+            >
+              <i class="fa-solid fa-paperclip text-sm"></i>
+            </button>
 
-        <!-- Botón de Micrófono (Hablarle al Agente por Voz) -->
-        <button 
-          type="button"
-          id="btn-mic"
-          onclick="toggleVoiceRecording()"
-          title="Marcos: tocá acá para hablarle por micrófono a tu asistente"
-          class="bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#355670] border border-[#C5D8E8] px-3.5 py-3 rounded-xl text-sm flex items-center gap-1.5 transition shrink-0"
-        >
-          <i class="fa-solid fa-microphone" id="mic-icon"></i>
-          <span class="hidden sm:inline text-xs font-bold" id="mic-label">Hablar</span>
-        </button>
+            <!-- Botón de Micrófono -->
+            <button 
+              type="button"
+              id="btn-mic"
+              onclick="toggleVoiceRecording()"
+              title="Marcos: tocá acá para hablarle por micrófono"
+              class="w-9 h-9 rounded-xl hover:bg-[#E8F0F6] text-[#355670] flex items-center justify-center transition shrink-0"
+            >
+              <i class="fa-solid fa-microphone text-sm" id="mic-icon"></i>
+            </button>
 
-        <!-- Toggle de Respuesta por Voz -->
-        <button 
-          type="button"
-          id="btn-voice-toggle"
-          onclick="toggleVoiceReplyMode()"
-          title="Activar/Desactivar que el asistente te hable con voz"
-          class="bg-[#DCE8DE] text-[#2F4B38] border border-[#BFD3C3] px-2.5 py-3 rounded-xl text-xs font-bold flex items-center gap-1 transition shrink-0"
-        >
-          <i class="fa-solid fa-volume-high" id="voice-toggle-icon"></i>
-          <span class="hidden md:inline" id="voice-toggle-text">Voz ON</span>
-        </button>
+            <!-- Input Principal -->
+            <input 
+              id="chat-input" 
+              type="text" 
+              placeholder="Marcos, escribí un mensaje o pedí un Reel..." 
+              class="flex-1 bg-transparent text-[#2C302E] placeholder-[#8A8F8B] text-xs sm:text-sm px-2 py-1.5 focus:outline-none"
+              autocomplete="off"
+            />
 
-        <input 
-          id="chat-input" 
-          type="text" 
-          placeholder="Marcos, escribile o hablá acá... (Ej: 'Armame un Reel con los videos que subí')" 
-          class="flex-1 bg-[#F6F3EC] text-[#2C302E] placeholder-[#858A86] text-sm px-4 py-3 rounded-xl border border-[#DCD6CA] focus:outline-none focus:border-[#6F9279]"
-          autocomplete="off"
-        />
-        <button 
-          id="btn-send"
-          type="submit" 
-          class="bg-[#6F9279] hover:bg-[#5B7B64] text-white font-bold px-4 py-3 rounded-xl text-sm flex items-center gap-2 transition shrink-0 shadow-sm"
-        >
-          <span>Enviar</span>
-          <i class="fa-solid fa-paper-plane"></i>
-        </button>
-      </form>
+            <!-- Toggle de Respuesta por Voz -->
+            <button 
+              type="button"
+              id="btn-voice-toggle"
+              onclick="toggleVoiceReplyMode()"
+              title="Activar/Desactivar respuesta con voz"
+              class="px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1 bg-[#E8F0E9] text-[#2F4B38] border border-[#CFDFD2] transition shrink-0"
+            >
+              <i class="fa-solid fa-volume-high text-[10px]" id="voice-toggle-icon"></i>
+              <span class="hidden sm:inline" id="voice-toggle-text">Voz ON</span>
+            </button>
+
+            <!-- Botón Circular de Enviar (Estilo ChatGPT / Gemini) -->
+            <button 
+              id="btn-send"
+              type="submit" 
+              title="Enviar mensaje"
+              class="w-9 h-9 rounded-full bg-[#6F9279] hover:bg-[#5B7B64] text-white flex items-center justify-center transition shrink-0 shadow-xs"
+            >
+              <i class="fa-solid fa-arrow-up text-sm"></i>
+            </button>
+          </form>
+
+          <!-- Disclaimer sutil inferior -->
+          <div class="flex items-center justify-center gap-2 text-[10px] text-[#9A9F9B] mt-2 text-center">
+            <span>Asistente comercial de Marcos</span>
+            <span>•</span>
+            <span>Aprende de tu negocio y usa tus fotos reales de Córdoba</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- COLUMNA DERECHA: HERRAMIENTAS DE MARCOS (ARCHIVOS REALES + REELS + TABLA EDITABLE) (5 COLUMNAS) -->
@@ -787,49 +795,118 @@
           `;
         }).join('');
 
-        // Renderizar Chat si hay mensajes nuevos
+        // Renderizar Chat si hay mensajes nuevos (Estilo ChatGPT / Gemini / ISA)
         const chatHistory = data.chatHistory || [];
         if (chatHistory.length !== lastChatCount) {
           lastChatCount = chatHistory.length;
           const chatBox = document.getElementById('chat-box');
           if (chatHistory.length === 0) {
-            chatBox.innerHTML = '';
+            chatBox.innerHTML = `
+              <div class="h-full flex flex-col items-center justify-center text-center py-8 px-4 max-w-lg mx-auto">
+                <div class="w-12 h-12 rounded-2xl bg-[#E8F0E9] text-[#2F4B38] flex items-center justify-center text-xl shadow-xs mb-3">
+                  <i class="fa-solid fa-sparkles text-lg"></i>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-[#2C302E]">Hola Marcos 👋</h2>
+                <p class="text-xs sm:text-sm text-[#6B706C] mt-1 mb-6 max-w-md">
+                  ¿En qué te ayudo hoy con tu tienda o tus campañas de almohadas?
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full text-left">
+                  <button type="button" onclick="sendQuickCommand('Armame un Reel sin voz para alivio cervical con mis archivos reales')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
+                      <span class="text-sm">🎬</span>
+                      <span>Armar Reel Cervical</span>
+                    </div>
+                    <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">Video 9:16 sin voz para dolor de cuello y postura</p>
+                  </button>
+
+                  <button type="button" onclick="sendQuickCommand('Armame un Reel sin voz de oferta Pack x2 Ahorro con mis archivos')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
+                      <span class="text-sm">📦</span>
+                      <span>Armar Reel Pack x2</span>
+                    </div>
+                    <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">Video 9:16 enfocado en ahorro familiar y envío gratis</p>
+                  </button>
+
+                  <button type="button" onclick="sendQuickCommand('Mostrame la analítica de mi tienda WhatsApp: visualizaciones, clics en pedir, carritos abandonados y productos más vistos')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
+                      <span class="text-sm">📈</span>
+                      <span>Analítica de la Tienda</span>
+                    </div>
+                    <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">Rendimiento por anuncio, visitas y carritos abandonados</p>
+                  </button>
+
+                  <button type="button" onclick="sendQuickCommand('Calculame los costos, ganancia limpia, devoluciones y CPA máximo')" class="p-3.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F2EFE9] border border-[#DDD7CD] hover:border-[#6F9279] transition shadow-xs group">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[#2C302E] group-hover:text-[#2F4B38]">
+                      <span class="text-sm">🧮</span>
+                      <span>Costos y Ganancia Limpia</span>
+                    </div>
+                    <p class="text-[11px] text-[#7A7F7C] mt-1 leading-normal">CPA máximo permitido por producto y margen neto</p>
+                  </button>
+                </div>
+              </div>
+            `;
           } else {
             chatBox.innerHTML = chatHistory.map(m => {
               const isUser = m.role === 'user';
               const badge = m.source === 'telegram' 
-                ? '<span class="text-[10px] bg-[#E6EFF6] text-[#355670] border border-[#C5D8E8] px-1.5 py-0.5 rounded ml-1"><i class="fa-brands fa-telegram"></i> Desde tu Telegram</span>' 
+                ? '<span class="text-[9px] bg-[#E8F0F6] text-[#2D4A60] border border-[#C9D9E6] px-1.5 py-0.2 rounded font-semibold ml-1"><i class="fa-brands fa-telegram"></i> Telegram</span>' 
                 : '';
-              const voiceHtml = m.voice ? `
-                <div class="mt-2.5 p-2 rounded-xl bg-[#F6F3EC] border border-[#DCD6CA] flex items-center gap-2">
-                  <i class="fa-solid fa-volume-high text-[#4A7696] text-xs ml-1"></i>
-                  <audio src="${m.voice}" controls class="h-8 w-full"></audio>
-                </div>
-              ` : '';
-              const reelHtml = m.reel ? `
-                <div class="mt-3 p-3 rounded-xl bg-[#F6F3EC] border border-[#CFD8D0]">
-                  <video src="${m.reel}" controls class="w-44 rounded-lg mx-auto border border-[#CFC8BC] shadow-sm"></video>
-                  <div class="mt-2.5 flex justify-center">
-                    <a href="${m.reel}" download class="bg-[#6F9279] hover:bg-[#5B7B64] text-white font-bold text-xs px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5 shadow-sm">
-                      <i class="fa-solid fa-download"></i> Descargar mi Reel MP4
-                    </a>
-                  </div>
-                </div>
-              ` : '';
 
-              return `
-                <div class="flex ${isUser ? 'justify-end' : 'justify-start'}">
-                  <div class="max-w-[85%] rounded-2xl px-4 py-3 text-xs sm:text-sm leading-relaxed shadow-sm ${isUser ? 'bg-[#DCE8DE] text-[#223327] border border-[#C2D6C6]' : 'bg-[#FFFFFF] text-[#2C302E] border border-[#E2DDD3]'}">
-                    <div class="flex items-center justify-between gap-2 mb-1 text-[10px] text-[#6B706C]">
-                      <span class="font-bold ${isUser ? 'text-[#2F4B38]' : 'text-[#4A6B54]'}">${isUser ? 'Marcos' : '🤖 Tu Asistente'} ${badge}</span>
-                      <span>${m.timestamp || ''}</span>
+              if (isUser) {
+                return `
+                  <div class="flex justify-end">
+                    <div class="max-w-[85%] sm:max-w-[75%] rounded-2xl rounded-tr-xs px-4 py-3 bg-[#E8F0E9] text-[#1E2D22] border border-[#D5E3D8] shadow-xs text-xs sm:text-sm leading-relaxed">
+                      <div class="flex items-center justify-between gap-2 mb-1 text-[10px] text-[#4A6B54]">
+                        <span class="font-bold">Marcos ${badge}</span>
+                        <span class="text-[9px] opacity-75">${m.timestamp || ''}</span>
+                      </div>
+                      <div class="break-words">${formatMarkdown(m.text)}</div>
                     </div>
-                    <div>${formatMarkdown(m.text)}</div>
-                    ${voiceHtml}
-                    ${reelHtml}
                   </div>
-                </div>
-              `;
+                `;
+              } else {
+                const voiceHtml = m.voice ? `
+                  <div class="mt-2.5 p-2 rounded-xl bg-[#F6F3EC] border border-[#DDD7CD] flex items-center gap-2 max-w-sm">
+                    <i class="fa-solid fa-volume-high text-[#355670] text-xs ml-1"></i>
+                    <audio src="${m.voice}" controls class="h-7 w-full"></audio>
+                  </div>
+                ` : '';
+                const reelHtml = m.reel ? `
+                  <div class="mt-3 p-3 rounded-xl bg-[#FAF8F5] border border-[#DDD7CD] inline-block shadow-xs">
+                    <video src="${m.reel}" controls class="w-48 rounded-lg mx-auto border border-[#CFC8BC] shadow-xs"></video>
+                    <div class="mt-2.5 flex justify-center">
+                      <a href="${m.reel}" download class="bg-[#6F9279] hover:bg-[#5B7B64] text-white font-bold text-xs px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5 shadow-xs transition">
+                        <i class="fa-solid fa-download"></i> Descargar Reel MP4
+                      </a>
+                    </div>
+                  </div>
+                ` : '';
+
+                return `
+                  <div class="flex items-start gap-3 assistant-msg-container">
+                    <div class="w-7 h-7 rounded-full bg-[#E8F0E9] text-[#2F4B38] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs">
+                      <i class="fa-solid fa-sparkles text-[11px]"></i>
+                    </div>
+                    <div class="flex-1 min-w-0 max-w-[90%] sm:max-w-[85%]">
+                      <div class="flex items-center gap-2 mb-1 text-[10px] text-[#7A7F7C]">
+                        <span class="font-bold text-[#2C302E]">Asistente</span>
+                        <span>${m.timestamp || ''}</span>
+                      </div>
+                      <div class="text-xs sm:text-sm text-[#2C302E] leading-relaxed break-words bg-[#FFFFFF] border border-[#EAE5DC] rounded-2xl rounded-tl-xs px-4 py-3 shadow-xs msg-body-content">
+                        ${formatMarkdown(m.text)}
+                        ${voiceHtml}
+                        ${reelHtml}
+                      </div>
+                      <div class="mt-1 flex items-center gap-3 text-[11px] text-[#8A8F8B]">
+                        <button type="button" onclick="copyMessageText(this)" class="hover:text-[#2C302E] flex items-center gap-1 transition py-0.5">
+                          <i class="fa-regular fa-copy text-xs"></i> <span>Copiar</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              }
             }).join('');
             if (scrollIfNew) chatBox.scrollTop = chatBox.scrollHeight;
           }
@@ -1369,7 +1446,7 @@
       const input = document.getElementById('chat-input');
       const btn = document.getElementById('btn-send');
       btn.disabled = true;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando...';
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-sm"></i>';
       const filesToUse = customSelectedFiles || (selectedFiles.length > 0 ? selectedFiles : null);
       try {
         const res = await fetch('/api/chat', {
@@ -1391,8 +1468,20 @@
         }
       } finally {
         btn.disabled = false;
-        btn.innerHTML = '<span>Enviar</span><i class="fa-solid fa-paper-plane"></i>';
+        btn.innerHTML = '<i class="fa-solid fa-arrow-up text-sm"></i>';
       }
+    }
+
+    function copyMessageText(btnEl) {
+      const container = btnEl.closest('.assistant-msg-container');
+      const textEl = container ? container.querySelector('.msg-body-content') : null;
+      const rawText = textEl ? textEl.innerText : '';
+      if (!rawText) return;
+      navigator.clipboard.writeText(rawText).then(() => {
+        const orig = btnEl.innerHTML;
+        btnEl.innerHTML = '<i class="fa-solid fa-check text-xs text-[#2F4B38]"></i> <span class="text-[#2F4B38] font-bold">Copiado</span>';
+        setTimeout(() => { btnEl.innerHTML = orig; }, 1800);
+      }).catch(() => {});
     }
 
     function sendQuickCommand(cmdText) {
