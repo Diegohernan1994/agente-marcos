@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+temp_build/
+voices/
+reels/*.mp4
+.DS_Store

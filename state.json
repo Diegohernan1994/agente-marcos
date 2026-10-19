@@ -1,0 +1,281 @@
+{
+  "business": {
+    "name": "Hola Marcos 👋 • Panel Comercial de Almohadas Viscoelásticas",
+    "ownerName": "Marcos",
+    "city": "Córdoba Capital",
+    "whatsapp": "5493518142542",
+    "catalogUrl": "https://tienda-marcos.pages.dev",
+    "transferDiscountPercent": 15,
+    "returnReservePercent": 2.0,
+    "shippingInsideRing": 3000,
+    "shippingOutsideRing": 5000,
+    "freeShippingThreshold": 100000
+  },
+  "aiConfig": {
+    "provider": "auto",
+    "apiUrl": "https://api.openai.com/v1/chat/completions",
+    "apiKey": "",
+    "model": "gpt-4o-mini"
+  },
+  "telegramConfig": {
+    "botToken": "",
+    "allowedChatId": "",
+    "enabled": false
+  },
+  "storeAnalytics": {
+    "pageViews": 148,
+    "uniqueVisitors": 112,
+    "totalClicks": 684,
+    "totalSessionsForDuration": 112,
+    "totalDurationSeconds": 10752,
+    "addToCartCount": 39,
+    "whatsappCheckoutClicks": 18,
+    "abandonedCartsCount": 21,
+    "abandonedCartsValue": 1084500,
+    "shippingModalViews": 46,
+    "adStats": {
+      "reel-dolor-cervical-instagram-ads": {
+        "adName": "Reel 1: Dolor Cervical",
+        "source": "Instagram Ads",
+        "views": 54,
+        "clicks": 286,
+        "sessions": 46,
+        "totalDurationSeconds": 5152,
+        "addedToCart": 18,
+        "whatsappOrders": 9,
+        "abandoned": 9,
+        "revenue": 496485
+      },
+      "reel-pack-x2-ahorro-facebook-ads": {
+        "adName": "Reel 2: Pack x2 Ahorro",
+        "source": "Facebook Ads",
+        "views": 42,
+        "clicks": 205,
+        "sessions": 34,
+        "totalDurationSeconds": 3332,
+        "addedToCart": 12,
+        "whatsappOrders": 6,
+        "abandoned": 6,
+        "revenue": 330990
+      },
+      "reel-densidad-rebote-instagram-ads": {
+        "adName": "Reel 3: Densidad y Rebote",
+        "source": "Instagram Ads",
+        "views": 29,
+        "clicks": 114,
+        "sessions": 18,
+        "totalDurationSeconds": 1350,
+        "addedToCart": 6,
+        "whatsappOrders": 1,
+        "abandoned": 5,
+        "revenue": 30515
+      },
+      "perfil-bio-instagram": {
+        "adName": "Perfil / Bio de Instagram",
+        "source": "Instagram Orgánico",
+        "views": 14,
+        "clicks": 52,
+        "sessions": 9,
+        "totalDurationSeconds": 585,
+        "addedToCart": 2,
+        "whatsappOrders": 1,
+        "abandoned": 1,
+        "revenue": 55165
+      },
+      "directo-catalogo": {
+        "adName": "Estado de WhatsApp / Link Directo",
+        "source": "WhatsApp / Directo",
+        "views": 9,
+        "clicks": 27,
+        "sessions": 5,
+        "totalDurationSeconds": 333,
+        "addedToCart": 1,
+        "whatsappOrders": 1,
+        "abandoned": 0,
+        "revenue": 50915
+      }
+    },
+    "productStats": {
+      "pack-2-cervicales": {
+        "name": "Pack x2 Almohadas Cervicales Ergonómicas",
+        "views": 94,
+        "addedToCart": 19,
+        "whatsappOrders": 10,
+        "abandoned": 9
+      },
+      "cervical-individual": {
+        "name": "Almohada Cervical Ergonómica (1 unidad)",
+        "views": 68,
+        "addedToCart": 9,
+        "whatsappOrders": 4,
+        "abandoned": 5
+      },
+      "pack-2-clasicas": {
+        "name": "Pack x2 Almohadas Tradicionales Clásicas",
+        "views": 52,
+        "addedToCart": 6,
+        "whatsappOrders": 3,
+        "abandoned": 3
+      },
+      "gel-fresh": {
+        "name": "Almohada Viscoelástica Fresh Gel (Efecto Frío)",
+        "views": 41,
+        "addedToCart": 3,
+        "whatsappOrders": 1,
+        "abandoned": 2
+      },
+      "clasica-individual": {
+        "name": "Almohada Tradicional Clásica (1 unidad)",
+        "views": 29,
+        "addedToCart": 1,
+        "whatsappOrders": 0,
+        "abandoned": 1
+      },
+      "funda-repuesto": {
+        "name": "Funda Extra de Repuesto (Algodón con Cierre)",
+        "views": 18,
+        "addedToCart": 1,
+        "whatsappOrders": 0,
+        "abandoned": 1
+      }
+    },
+    "recentEvents": [
+      {
+        "time": "Hace 6 min",
+        "type": "whatsapp_order",
+        "status": "whatsapp_order",
+        "durationSec": 115,
+        "clicks": 8,
+        "cartValue": 55165,
+        "topProduct": "Pack x2 Almohadas Cervicales",
+        "adName": "Reel 1: Dolor Cervical",
+        "source": "Instagram Ads",
+        "detail": "Pidió por WhatsApp: Pack x2 Almohadas Cervicales ($55.165 Transf.)"
+      },
+      {
+        "time": "Hace 19 min",
+        "type": "abandoned_cart",
+        "status": "abandoned_cart",
+        "durationSec": 64,
+        "clicks": 5,
+        "cartValue": 62305,
+        "topProduct": "Pack x2 Cervicales + Funda Extra",
+        "adName": "Reel 3: Densidad y Rebote",
+        "source": "Instagram Ads",
+        "detail": "Carrito Abandonado: Pack x2 Cervicales + Funda Extra ($62.305)"
+      },
+      {
+        "time": "Hace 34 min",
+        "type": "abandoned_cart",
+        "status": "abandoned_cart",
+        "durationSec": 48,
+        "clicks": 4,
+        "cartValue": 30515,
+        "topProduct": "Almohada Cervical Individual",
+        "adName": "Reel 1: Dolor Cervical",
+        "source": "Instagram Ads",
+        "detail": "Carrito Abandonado: Almohada Cervical Individual ($30.515)"
+      },
+      {
+        "time": "Hace 52 min",
+        "type": "whatsapp_order",
+        "status": "whatsapp_order",
+        "durationSec": 140,
+        "clicks": 9,
+        "cartValue": 50915,
+        "topProduct": "Pack x2 Tradicionales Clásicas",
+        "adName": "Reel 2: Pack x2 Ahorro",
+        "source": "Facebook Ads",
+        "detail": "Pidió por WhatsApp: Pack x2 Tradicionales Clásicas ($50.915 Transf.)"
+      }
+    ]
+  },
+  "products": [
+    {
+      "id": "pack-2-cervicales",
+      "name": "Pack x2 Almohadas Cervicales Ergonómicas",
+      "category": "packs",
+      "cost": 32000,
+      "packagingCost": 600,
+      "price": 64900,
+      "originalPrice": 89900,
+      "image": "pack-2-cervicales.jpg"
+    },
+    {
+      "id": "cervical-individual",
+      "name": "Almohada Cervical Ergonómica (1 unidad)",
+      "category": "cervicales",
+      "cost": 16000,
+      "packagingCost": 400,
+      "price": 35900,
+      "originalPrice": 47900,
+      "image": "cervical-individual.jpg"
+    },
+    {
+      "id": "pack-2-clasicas",
+      "name": "Pack x2 Almohadas Tradicionales Clásicas",
+      "category": "packs",
+      "cost": 29000,
+      "packagingCost": 600,
+      "price": 59900,
+      "originalPrice": 82900,
+      "image": "pack-2-clasicas.jpg"
+    },
+    {
+      "id": "clasica-individual",
+      "name": "Almohada Tradicional Clásica (1 unidad)",
+      "category": "clasicas",
+      "cost": 14500,
+      "packagingCost": 400,
+      "price": 32900,
+      "originalPrice": 42900,
+      "image": "clasica-individual.jpg"
+    },
+    {
+      "id": "gel-fresh",
+      "name": "Almohada Viscoelástica Fresh Gel (Efecto Frío)",
+      "category": "especiales",
+      "cost": 21000,
+      "packagingCost": 400,
+      "price": 43900,
+      "originalPrice": 56900,
+      "image": "gel-fresh.jpg"
+    },
+    {
+      "id": "funda-repuesto",
+      "name": "Funda Extra de Repuesto (Algodón con Cierre)",
+      "category": "accesorios",
+      "cost": 4200,
+      "packagingCost": 200,
+      "price": 9900,
+      "originalPrice": 14900,
+      "image": "funda-repuesto.jpg"
+    }
+  ],
+  "agentMemory": {
+    "learnedRules": [
+      {
+        "id": "mem-1",
+        "date": "Base",
+        "text": "Repartos en Córdoba Capital: $3.000 dentro de Circunvalación, $5.000 fuera de Circunvalación y envío gratis superando $100.000."
+      },
+      {
+        "id": "mem-2",
+        "date": "Base",
+        "text": "El ángulo ganador en Meta Ads es el Reel 1 (Dolor Cervical) con 16.7% de conversión a pedido en WhatsApp."
+      }
+    ],
+    "campaignHistory": [
+      {
+        "date": "Base",
+        "spend": 10000,
+        "clicks": 38,
+        "sales": 2,
+        "cpa": 5000,
+        "verdict": "VERDE"
+      }
+    ]
+  },
+  "chatHistory": [],
+  "deletedReels": []
+}

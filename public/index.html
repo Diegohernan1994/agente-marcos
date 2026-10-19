@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hola Marcos | Tu Asistente Comercial Todo-en-Uno</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #F6F3EC;
+      color: #2C302E;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-thumb { background: #CFC8BC; border-radius: 999px; }
+  </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-[#F6F3EC] text-[#2C302E]">
+
+  <!-- BARRA SUPERIOR CÁLIDA Y PASTEL DIRIGIDA A MARCOS -->
+  <header class="bg-[#FFFFFF] border-b border-[#E2DDD3] px-4 py-3 flex items-center justify-between shrink-0 shadow-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-[#DCE8DE] border border-[#BFD3C3] flex items-center justify-center text-[#3B5E46] text-lg font-bold">
+        <i class="fa-solid fa-mug-hot"></i>
+      </div>
+      <div>
+        <h1 class="font-bold text-sm sm:text-base text-[#2C302E] leading-tight" id="biz-name">
+          Hola Marcos 👋 • Tu Panel Comercial de Almohadas
+        </h1>
+        <p class="text-xs text-[#6B706C] flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#6F9279]"></span>
+          <span>Tus Reels con fotos/videos 100% reales • Tus números claros • Control por Voz y Telegram</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Botón rápido para que Marcos suba clips o fotos -->
+      <button onclick="document.getElementById('file-upload').click()" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6F9279] hover:bg-[#5E7E67] text-white flex items-center gap-1.5 transition shadow-sm">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Subir mis Clips / Fotos</span>
+      </button>
+
+      <!-- Estado de Telegram -->
+      <button onclick="openConfigModal()" id="tg-status-pill" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#355670] border border-[#C5D8E8] flex items-center gap-1.5 transition">
+        <i class="fa-brands fa-telegram text-[#4A7696] text-sm"></i>
+        <span id="tg-status-text">Conectar mi Telegram</span>
+      </button>
+
+      <a href="https://tienda-marcos.pages.dev" target="_blank" class="hidden md:flex px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#EFECE4] text-[#4A504C] border border-[#DCD6CA] hover:bg-[#E4DFD4] items-center gap-1.5 transition">
+        <i class="fa-solid fa-store text-[#6F9279]"></i>
+        <span>Ver mi Tienda Online</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL: CHAT A LA IZQUIERDA + PANEL DE MARCOS A LA DERECHA -->
+  <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
+
+    <!-- COLUMNA IZQUIERDA / CENTRAL: CHAT DE MARCOS CON SU ASISTENTE (7 COLUMNAS) -->
+    <section class="lg:col-span-7 flex flex-col bg-[#EFECE4] border-r border-[#E2DDD3] h-full overflow-hidden">
+      
+      <!-- Botones de Acción Rápida de 1 Clic para Marcos -->
+      <div class="bg-[#F9F7F3] px-3 py-2.5 border-b border-[#E2DDD3] flex items-center gap-1.5 overflow-x-auto shrink-0">
+        <span class="text-[11px] text-[#6B706C] font-semibold mr-1 shrink-0">Accesos rápidos Marcos:</span>
+        <button onclick="document.getElementById('file-upload').click()" class="px-2.5 py-1 rounded-lg bg-[#DCE8DE] hover:bg-[#CCE0CF] text-[#2F4B38] text-xs font-bold whitespace-nowrap border border-[#BFD3C3] transition">
+          📎 1. Subir mis Clips/Fotos
+        </button>
+        <button onclick="sendQuickCommand('Armame un Reel sin voz para alivio cervical con mis archivos reales')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#DCE8DE] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
+          🎬 Armar Reel Cervical
+        </button>
+        <button onclick="sendQuickCommand('Armame un Reel sin voz de oferta Pack x2 Ahorro con mis archivos')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#DCE8DE] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
+          🎬 Armar Reel Pack x2
+        </button>
+        <button onclick="sendQuickCommand('Calculame los costos, ganancia limpia, devoluciones y CPA máximo')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F3E6DC] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
+          🧮 Mis Costos y Ganancias
+        </button>
+        <button onclick="sendQuickCommand('Gasté 10000 en anuncios, tuve 38 clics y 2 ventas, auditá mi campaña')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F3E6DC] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
+          🚦 Semáforo de mis Anuncios
+        </button>
+        <button onclick="sendQuickCommand('Mostrame la analítica de mi tienda WhatsApp: visualizaciones, clics en pedir, carritos abandonados y productos más vistos')" class="px-2.5 py-1 rounded-lg bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#2D4A60] text-xs font-bold whitespace-nowrap border border-[#C5D8E8] transition">
+          📈 Analítica de mi Tienda
+        </button>
+        <button onclick="sendQuickCommand('Dame guiones para cerrar ventas en WhatsApp cuando clavan el visto')" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#E6EFF6] text-[#3E4541] text-xs font-medium whitespace-nowrap border border-[#DCD6CA] transition">
+          💬 Respuestas WhatsApp
+        </button>
+        <button onclick="clearChatHistory()" title="Limpiar mensajes del chat" class="ml-auto px-2.5 py-1 rounded-lg bg-[#F5E6E4] hover:bg-[#EBD0CC] text-[#9E4B42] text-xs font-bold whitespace-nowrap border border-[#E0C2BE] transition">
+          <i class="fa-solid fa-trash-can mr-1"></i>Limpiar Chat
+        </button>
+      </div>
+
+      <!-- Mensajes del Chat -->
+      <div id="chat-box" class="flex-1 overflow-y-auto p-4 space-y-3">
+        <!-- Renderizado dinámico -->
+      </div>
+
+      <!-- Indicador de archivos seleccionados para el próximo Reel -->
+      <div id="selected-files-bar" class="hidden bg-[#DCE8DE] px-4 py-2 border-t border-[#BFD3C3] flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2 text-[#2F4B38] font-medium truncate">
+          <i class="fa-solid fa-check-double"></i>
+          <span id="selected-files-text">0 archivos reales seleccionados para tu Reel</span>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="buildReelFromSelected()" class="bg-[#5C7D66] hover:bg-[#4B6954] text-white font-bold px-3 py-1 rounded-lg text-xs">
+            🎬 Armar mi Reel Ahora
+          </button>
+          <button onclick="clearSelectedFiles()" class="text-[#5A635E] hover:text-[#2C302E] text-xs underline">
+            Limpiar
+          </button>
+        </div>
+      </div>
+
+      <!-- Input oculto para subir clips de video (.mp4, .mov, .webm) o fotos (.jpg, .png, .webp) -->
+      <input id="file-upload" type="file" accept="video/*,image/*" multiple class="hidden" onchange="handleFilesUpload(event)" />
+
+      <!-- Barra de Escritura + Botón de Orden por Voz para Marcos -->
+      <form id="chat-form" class="p-3 bg-[#FFFFFF] border-t border-[#E2DDD3] flex items-center gap-2 shrink-0">
+        <button 
+          type="button"
+          onclick="document.getElementById('file-upload').click()"
+          title="Subir clips cortos de video o fotos reales de tu celular"
+          class="bg-[#F6F3EC] hover:bg-[#DCE8DE] text-[#466952] border border-[#DCD6CA] px-3 py-3 rounded-xl text-sm flex items-center gap-1.5 transition shrink-0"
+        >
+          <i class="fa-solid fa-paperclip"></i>
+          <span class="hidden xl:inline text-xs font-semibold text-[#3E4541]">Clips/Fotos</span>
+        </button>
+
+        <!-- Botón de Micrófono (Hablarle al Agente por Voz) -->
+        <button 
+          type="button"
+          id="btn-mic"
+          onclick="toggleVoiceRecording()"
+          title="Marcos: tocá acá para hablarle por micrófono a tu asistente"
+          class="bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#355670] border border-[#C5D8E8] px-3.5 py-3 rounded-xl text-sm flex items-center gap-1.5 transition shrink-0"
+        >
+          <i class="fa-solid fa-microphone" id="mic-icon"></i>
+          <span class="hidden sm:inline text-xs font-bold" id="mic-label">Hablar</span>
+        </button>
+
+        <!-- Toggle de Respuesta por Voz -->
+        <button 
+          type="button"
+          id="btn-voice-toggle"
+          onclick="toggleVoiceReplyMode()"
+          title="Activar/Desactivar que el asistente te hable con voz"
+          class="bg-[#DCE8DE] text-[#2F4B38] border border-[#BFD3C3] px-2.5 py-3 rounded-xl text-xs font-bold flex items-center gap-1 transition shrink-0"
+        >
+          <i class="fa-solid fa-volume-high" id="voice-toggle-icon"></i>
+          <span class="hidden md:inline" id="voice-toggle-text">Voz ON</span>
+        </button>
+
+        <input 
+          id="chat-input" 
+          type="text" 
+          placeholder="Marcos, escribile o hablá acá... (Ej: 'Armame un Reel con los videos que subí')" 
+          class="flex-1 bg-[#F6F3EC] text-[#2C302E] placeholder-[#858A86] text-sm px-4 py-3 rounded-xl border border-[#DCD6CA] focus:outline-none focus:border-[#6F9279]"
+          autocomplete="off"
+        />
+        <button 
+          id="btn-send"
+          type="submit" 
+          class="bg-[#6F9279] hover:bg-[#5B7B64] text-white font-bold px-4 py-3 rounded-xl text-sm flex items-center gap-2 transition shrink-0 shadow-sm"
+        >
+          <span>Enviar</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </section>
+
+    <!-- COLUMNA DERECHA: HERRAMIENTAS DE MARCOS (ARCHIVOS REALES + REELS + TABLA EDITABLE) (5 COLUMNAS) -->
+    <aside class="lg:col-span-5 flex flex-col bg-[#F6F3EC] h-full overflow-y-auto p-4 space-y-4">
+
+      <!-- BLOQUE 1: SUBIR CLIPS CORTOS O FOTOS REALES DEL CELULAR DE MARCOS -->
+      <div class="bg-[#FFFFFF] border border-[#DCD6CA] rounded-2xl p-4 shadow-sm">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="font-bold text-sm text-[#2C302E] flex items-center gap-2">
+            <i class="fa-solid fa-mobile-screen-button text-[#6F9279]"></i>
+            <span>1. Marcos: Tus Clips Cortos y Fotos Reales</span>
+          </h2>
+          <button onclick="document.getElementById('file-upload').click()" id="btn-upload-panel" class="px-3 py-1 rounded-lg bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] border border-[#BFD3C3] text-xs font-bold flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-plus"></i> Subir desde Celu/PC
+          </button>
+        </div>
+
+        <div class="bg-[#F5EFE6] border border-[#E4D9C8] rounded-xl p-2.5 mb-3 text-[11px] text-[#5C4B3B] leading-relaxed">
+          <i class="fa-solid fa-shield-halved text-[#8C6D53] mr-1"></i>
+          <b>100% Tus Almohadas Reales:</b> Marcos, acá podés subir videos cortos apretando la almohada o varias fotos sacadas con tu celular. El sistema <b>nunca inventa nada ni cambia la tela o textura</b>: usa tus archivos originales y les arma el marco de venta sin voz.
+        </div>
+
+        <p class="text-[11px] text-[#6B706C] mb-2">
+          Tocá las fotos o clips en el orden en que querés que salgan en tu Reel:
+        </p>
+
+        <!-- Galería de clips y fotos reales subidas -->
+        <div id="uploads-grid" class="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-44 overflow-y-auto pr-1 mb-3">
+          <!-- Renderizado dinámico -->
+        </div>
+
+        <!-- Selector de ángulo + botón directo de ensamblaje -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-2 border-t border-[#EAE5DC]">
+          <select id="reel-angle-select" class="bg-[#F6F3EC] text-[#2C302E] text-xs rounded-xl px-3 py-2 border border-[#DCD6CA] flex-1 focus:outline-none focus:border-[#6F9279]">
+            <option value="cervical">Opción 1: Alivio Dolor Cervical y Postura</option>
+            <option value="pack">Opción 2: Oferta Pack x2 Ahorro (-15% Transf.)</option>
+            <option value="rebote">Opción 3: Demostración Densidad y Rebote Real</option>
+          </select>
+          <button onclick="buildReelFromSelected()" id="btn-build-reel" class="bg-[#6F9279] hover:bg-[#5B7B64] text-white font-bold text-xs px-4 py-2 rounded-xl flex items-center justify-center gap-1.5 transition shrink-0 shadow-sm">
+            <i class="fa-solid fa-film"></i>
+            <span>Armar mi Reel MP4</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- BLOQUE 2: REELS TERMINADOS DE MARCOS -->
+      <div class="bg-[#FFFFFF] border border-[#DCD6CA] rounded-2xl p-4 shadow-sm">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="font-bold text-sm text-[#2C302E] flex items-center gap-2">
+            <i class="fa-solid fa-clapperboard text-[#6F9279]"></i>
+            <span>2. Tus Reels Listos para Descargar (Sin Voz • 9:16)</span>
+          </h2>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[11px] bg-[#DCE8DE] text-[#2F4B38] px-2.5 py-0.5 rounded-full font-semibold" id="reels-count">0 videos</span>
+            <button type="button" onclick="deleteReelFile('ALL')" title="Eliminar todos los Reels guardados" class="text-[11px] bg-[#F5E6E4] hover:bg-[#EBD0CC] text-[#9E4B42] border border-[#E0C2BE] px-2 py-0.5 rounded-full font-bold flex items-center gap-1 transition">
+              <i class="fa-solid fa-trash-can text-[10px]"></i> Vaciar
+            </button>
+          </div>
+        </div>
+        <div id="reels-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+          <!-- Lista de videos MP4 -->
+        </div>
+      </div>
+
+      <!-- BLOQUE 3: TABLA EDITABLE DE COSTOS, DEVOLUCIONES Y CPA DE MARCOS -->
+      <div id="products-card" class="bg-[#FFFFFF] border border-[#DCD6CA] rounded-2xl p-4 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <h2 class="font-bold text-sm text-[#2C302E] flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-[#9A6B4C]"></i>
+            <span>3. Tus Costos, Ganancia Limpia y CPA Ads (Editable)</span>
+          </h2>
+          <div class="flex items-center gap-1.5">
+            <button type="button" onclick="addNewProductRow()" class="px-2.5 py-1 rounded-lg bg-[#F6F3EC] hover:bg-[#EAE5DC] text-[#3B5E46] border border-[#CFD8D0] text-[11px] font-bold flex items-center gap-1 transition">
+              <i class="fa-solid fa-plus"></i> Agregar Producto
+            </button>
+            <button type="button" id="btn-save-products" onclick="saveProductsTable()" class="px-3 py-1 rounded-lg bg-[#6F9279] hover:bg-[#5B7B64] text-white text-[11px] font-bold flex items-center gap-1 transition shadow-sm">
+              <i class="fa-solid fa-floppy-disk"></i> <span>Guardar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Controles editables de % Devoluciones y % Descuento Transferencia -->
+        <div class="flex flex-wrap items-center gap-3 bg-[#F6F3EC] border border-[#E2DDD3] rounded-xl px-3 py-2 mb-3 text-[11px] text-[#4A504C]">
+          <label class="flex items-center gap-1.5">
+            <span>Reserva Garantía/Devoluciones:</span>
+            <input id="inp-return-pct" type="number" step="0.5" min="0" max="30" value="2" oninput="recalcProductsLive()" onchange="saveProductsTable()" class="w-14 bg-[#FFFFFF] text-[#7A5438] font-bold px-2 py-1 rounded border border-[#CFC8BC] text-center focus:outline-none focus:border-[#6F9279]" />
+            <span class="font-bold text-[#7A5438]">%</span>
+          </label>
+          <span class="text-[#CFC8BC]">|</span>
+          <label class="flex items-center gap-1.5">
+            <span>Descuento Transferencia:</span>
+            <input id="inp-transf-pct" type="number" step="1" min="0" max="50" value="15" oninput="recalcProductsLive()" onchange="saveProductsTable()" class="w-14 bg-[#FFFFFF] text-[#3B5E46] font-bold px-2 py-1 rounded border border-[#CFC8BC] text-center focus:outline-none focus:border-[#6F9279]" />
+            <span class="font-bold text-[#3B5E46]">% OFF</span>
+          </label>
+          <span id="save-status-badge" class="ml-auto text-[10px] text-[#3B5E46] bg-[#DCE8DE] px-2 py-0.5 rounded-full font-bold hidden">
+            <i class="fa-solid fa-check"></i> Guardado
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-[#E2DDD3] text-[#6B706C] text-[11px]">
+                <th class="py-2 pr-2">Producto (Hacé clic para editar)</th>
+                <th class="py-2 px-1.5">Venta Lista ($)</th>
+                <th class="py-2 px-1.5">Tu Costo ($)</th>
+                <th class="py-2 px-1.5 text-[#3B5E46]">Tu Ganancia Limpia</th>
+                <th class="py-2 pl-1.5 text-[#8A5A3B]">CPA Máx Ads</th>
+                <th class="py-2 pl-1"></th>
+              </tr>
+            </thead>
+            <tbody id="products-table-body" class="divide-y divide-[#EFECE4]">
+              <!-- Productos Editables -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- BLOQUE 4: ANALÍTICA EN VIVO DE LA TIENDA WHATSAPP BUSINESS DE MARCOS -->
+      <div id="analytics-card" class="bg-[#FFFFFF] border border-[#DCD6CA] rounded-2xl p-4 shadow-sm space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="font-bold text-sm text-[#2C302E] flex items-center gap-2">
+              <i class="fa-solid fa-chart-line text-[#4A7696]"></i>
+              <span>4. Analítica de tu Tienda WhatsApp Business</span>
+            </h2>
+            <p class="text-[11px] text-[#6B706C]">
+              Marcos, acá ves en tiempo real qué hacen los clientes en <a href="https://tienda-marcos.pages.dev" target="_blank" class="underline font-semibold text-[#355670]">tienda-marcos.pages.dev</a>
+            </p>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button type="button" onclick="sendQuickCommand('Analizame las visualizaciones, clics en pedir, carritos abandonados y permanencia de mi tienda WhatsApp')" class="px-2.5 py-1 rounded-lg bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#2D4A60] border border-[#C5D8E8] text-[11px] font-bold flex items-center gap-1 transition">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Diagnóstico
+            </button>
+            <button type="button" onclick="resetStoreAnalytics()" title="Poner contadores en cero" class="px-2 py-1 rounded-lg bg-[#F6F3EC] hover:bg-[#EAE5DC] text-[#6B706C] border border-[#DCD6CA] text-[11px] font-semibold transition">
+              <i class="fa-solid fa-rotate-left"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- GRILLA DE 4 KPIS PRINCIPALES EN PASTEL -->
+        <div class="grid grid-cols-2 gap-2.5">
+          <!-- KPI 1: Visualizaciones y Visitantes -->
+          <div class="bg-[#F6F3EC] border border-[#E2DDD3] rounded-xl p-2.5">
+            <div class="flex items-center justify-between text-[11px] text-[#6B706C] mb-0.5">
+              <span>👁️ Visualizaciones</span>
+              <span class="text-[10px] bg-[#EAE5DC] text-[#4A504C] px-1.5 py-0.5 rounded font-semibold" id="an-visitors">0 únicos</span>
+            </div>
+            <div class="text-lg font-extrabold text-[#2C302E]" id="an-pageviews">0</div>
+            <div class="text-[10px] text-[#6B706C]">Vistas totales del catálogo</div>
+          </div>
+
+          <!-- KPI 2: Clics en Pedir por WhatsApp -->
+          <div class="bg-[#E5EFE7] border border-[#C6DBC9] rounded-xl p-2.5">
+            <div class="flex items-center justify-between text-[11px] text-[#2F4B38] mb-0.5">
+              <span class="font-semibold">📲 Clic en Pedir WA</span>
+              <span class="text-[10px] bg-[#FFFFFF]/80 text-[#2F4B38] px-1.5 py-0.5 rounded font-bold" id="an-conv-rate">0% conv.</span>
+            </div>
+            <div class="text-lg font-extrabold text-[#2F4B38]" id="an-wa-clicks">0</div>
+            <div class="text-[10px] text-[#3B5E46]">Pedidos enviados a tu WhatsApp</div>
+          </div>
+
+          <!-- KPI 3: Carritos Abandonados -->
+          <div class="bg-[#F5EAE0] border border-[#E4D1C0] rounded-xl p-2.5">
+            <div class="flex items-center justify-between text-[11px] text-[#7A5438] mb-0.5">
+              <span class="font-semibold">🛒 Carrito Abandonado</span>
+              <span class="text-[10px] bg-[#FFFFFF]/80 text-[#7A5438] px-1.5 py-0.5 rounded font-bold" id="an-abandon-rate">0%</span>
+            </div>
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-lg font-extrabold text-[#7A5438]" id="an-abandoned-count">0</span>
+              <span class="text-xs font-bold text-[#8A5A3B]" id="an-abandoned-value">($0)</span>
+            </div>
+            <div class="text-[10px] text-[#7A5438]">Dejaron productos sin pedir</div>
+          </div>
+
+          <!-- KPI 4: Permanencia y Detección de Clics -->
+          <div class="bg-[#E8F0F6] border border-[#C9D9E6] rounded-xl p-2.5">
+            <div class="flex items-center justify-between text-[11px] text-[#2D4A60] mb-0.5">
+              <span class="font-semibold">⏱️ Permanencia y Clics</span>
+              <span class="text-[10px] bg-[#FFFFFF]/80 text-[#2D4A60] px-1.5 py-0.5 rounded font-bold" id="an-avg-clicks">0 clics/vis.</span>
+            </div>
+            <div class="flex items-baseline justify-between">
+              <span class="text-base font-extrabold text-[#2D4A60]" id="an-dwell-time">0m 00s</span>
+              <span class="text-xs font-bold text-[#355670]" id="an-total-clicks">0 clics</span>
+            </div>
+            <div class="text-[10px] text-[#3E5669]">Tiempo promedio y clics detectados</div>
+          </div>
+        </div>
+
+        <!-- ORIGEN DEL TRÁFICO Y RENDIMIENTO POR ANUNCIO ESPECÍFICO -->
+        <div class="bg-[#F9F7F3] border border-[#E2DDD3] rounded-xl p-3">
+          <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2">
+            <h3 class="text-xs font-bold text-[#2C302E] flex items-center gap-1.5">
+              <i class="fa-solid fa-bullhorn text-[#4A7696]"></i>
+              <span>Origen de Visitas y Rendimiento por Anuncio Específico</span>
+            </h3>
+            <button type="button" onclick="document.getElementById('utm-links-box').classList.toggle('hidden')" class="text-[10px] px-2 py-0.5 rounded-lg bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#2D4A60] border border-[#C5D8E8] font-bold flex items-center gap-1 transition">
+              <i class="fa-solid fa-link"></i> Links por Anuncio
+            </button>
+          </div>
+
+          <!-- Caja desplegable con links listos para copiar y pegar en cada anuncio de Meta Ads -->
+          <div id="utm-links-box" class="hidden bg-[#F6F3EC] border border-[#DCD6CA] rounded-xl p-2.5 mb-2.5 space-y-2 text-[11px]">
+            <p class="text-[#4A504C] leading-snug">
+              <b>Marcos:</b> Pegá estos links en tus anuncios de Instagram/Facebook para que el panel detecte automáticamente de qué video vino cada visita, clic, carrito o pedido:
+            </p>
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2 py-1">
+                <span class="truncate font-semibold text-[#2C302E]">🎬 Reel 1: Dolor Cervical (IG Ads)</span>
+                <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen=Instagram_Ads&anuncio=Reel_1_Dolor_Cervical', this)" class="px-2 py-0.5 rounded bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] font-bold text-[10px] shrink-0">
+                  Copiar Link
+                </button>
+              </div>
+              <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2 py-1">
+                <span class="truncate font-semibold text-[#2C302E]">🎬 Reel 2: Pack x2 Ahorro (FB Ads)</span>
+                <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen=Facebook_Ads&anuncio=Reel_2_Pack_x2_Ahorro', this)" class="px-2 py-0.5 rounded bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] font-bold text-[10px] shrink-0">
+                  Copiar Link
+                </button>
+              </div>
+              <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2 py-1">
+                <span class="truncate font-semibold text-[#2C302E]">🎬 Reel 3: Densidad y Rebote (IG Ads)</span>
+                <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen=Instagram_Ads&anuncio=Reel_3_Densidad_Rebote', this)" class="px-2 py-0.5 rounded bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] font-bold text-[10px] shrink-0">
+                  Copiar Link
+                </button>
+              </div>
+              <div class="flex items-center justify-between gap-2 bg-[#E8F0F6] border border-[#C9D9E6] rounded-lg px-2 py-1">
+                <span class="truncate font-semibold text-[#2D4A60]">⚙️ Fórmula Dinámica Meta Ads (Detecta cualquier anuncio solo)</span>
+                <button type="button" onclick="copyTrackingLink('https://tienda-marcos.pages.dev/?origen={{site_source_name}}&anuncio={{ad.name}}', this)" class="px-2 py-0.5 rounded bg-[#FFFFFF] hover:bg-[#DCE8DE] text-[#2D4A60] border border-[#BFD3C3] font-bold text-[10px] shrink-0">
+                  Copiar Fórmula
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-[11px] border-collapse">
+              <thead>
+                <tr class="border-b border-[#E2DDD3] text-[#6B706C]">
+                  <th class="py-1.5 pr-2">Anuncio / Origen</th>
+                  <th class="py-1.5 px-1 text-center">👁️ Visitas</th>
+                  <th class="py-1.5 px-1 text-center">⏱️ Perm.</th>
+                  <th class="py-1.5 px-1 text-center text-[#2F4B38]">📲 Pedidos WA</th>
+                  <th class="py-1.5 pl-1 text-center text-[#7A5438]">🛒 Aband.</th>
+                </tr>
+              </thead>
+              <tbody id="an-ads-tbody" class="divide-y divide-[#EFECE4]">
+                <!-- Renderizado dinámico de anuncios -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TABLA DE PRODUCTOS MÁS VISTOS Y CARRITOS POR PRODUCTO -->
+        <div class="bg-[#F9F7F3] border border-[#E2DDD3] rounded-xl p-3">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-xs font-bold text-[#2C302E] flex items-center gap-1.5">
+              <i class="fa-solid fa-ranking-star text-[#7A5438]"></i>
+              <span>Productos Más Vistos, Pedidos y Abandonos</span>
+            </h3>
+            <span class="text-[10px] text-[#6B706C]" id="an-add-to-cart-total">0 agregados al carrito</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-[11px] border-collapse">
+              <thead>
+                <tr class="border-b border-[#E2DDD3] text-[#6B706C]">
+                  <th class="py-1.5 pr-2">Producto</th>
+                  <th class="py-1.5 px-1.5 text-center">👁️ Vistas</th>
+                  <th class="py-1.5 px-1.5 text-center">🛒 Carrito</th>
+                  <th class="py-1.5 px-1.5 text-center text-[#2F4B38]">📲 Pedidos</th>
+                  <th class="py-1.5 pl-1.5 text-center text-[#7A5438]">⚠️ Aband.</th>
+                </tr>
+              </thead>
+              <tbody id="an-products-tbody" class="divide-y divide-[#EFECE4]">
+                <!-- Renderizado dinámico -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ACTIVIDAD RECIENTE DE VISITANTES (CLICS, PERMANENCIA, ORIGEN Y ESTADO EN TIEMPO REAL) -->
+        <div class="bg-[#F9F7F3] border border-[#E2DDD3] rounded-xl p-3">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-xs font-bold text-[#2C302E] flex items-center gap-1.5">
+              <i class="fa-solid fa-user-clock text-[#4A7696]"></i>
+              <span>Últimas Visitas (Origen del Anuncio, Clics y Permanencia)</span>
+            </h3>
+            <div class="flex items-center gap-1">
+              <button type="button" onclick="simulateStoreEvent('whatsapp_order')" title="Probar cómo entra un pedido de WhatsApp desde un anuncio" class="text-[10px] px-2 py-0.5 rounded bg-[#DCE8DE] hover:bg-[#CBE0CE] text-[#2F4B38] font-semibold transition">
+                + Test Pedido WA
+              </button>
+              <button type="button" onclick="simulateStoreEvent('abandoned_cart')" title="Probar cómo se detecta un carrito abandonado desde un anuncio" class="text-[10px] px-2 py-0.5 rounded bg-[#F5EAE0] hover:bg-[#EBD9C8] text-[#7A5438] font-semibold transition">
+                + Test Abandono
+              </button>
+            </div>
+          </div>
+          <div id="an-sessions-list" class="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+            <!-- Renderizado dinámico -->
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOQUE 5: MEMORIA Y APRENDIZAJE PERMANENTE DE MARCOS -->
+      <div class="bg-[#FFFFFF] border border-[#DCD6CA] rounded-2xl p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-[#EAE5DC] pb-2">
+          <h2 class="font-bold text-xs sm:text-sm text-[#2C302E] flex items-center gap-2">
+            <i class="fa-solid fa-brain text-[#6F9279]"></i>
+            <span>5. Memoria Aprendida de tu Negocio (Persistente)</span>
+          </h2>
+          <span id="memory-count-badge" class="text-[11px] px-2 py-0.5 rounded-full bg-[#DCE8DE] text-[#2F4B38] font-bold">0 reglas</span>
+        </div>
+        <p class="text-[11px] text-[#6B706C] leading-relaxed">
+          Todo lo que le enseñes acá o en el chat diciendo <b>"Acordate que..."</b> queda guardado para siempre y lo usa al responderte o armar campañas.
+        </p>
+        <div class="flex gap-1.5">
+          <input id="inp-new-memory" type="text" placeholder="Ej: Acordate que los sábados repartimos en Villa Allende..." class="flex-1 bg-[#F6F3EC] text-[#2C302E] text-xs px-3 py-2 rounded-lg border border-[#CFC8BC] focus:outline-none focus:border-[#6F9279]" onkeydown="if(event.key==='Enter'){event.preventDefault();addMemoryRule();}" />
+          <button type="button" onclick="addMemoryRule()" class="px-3 py-2 rounded-lg bg-[#6F9279] hover:bg-[#5B7B64] text-white text-xs font-bold shrink-0 transition">
+            + Enseñar
+          </button>
+        </div>
+        <div id="memory-rules-list" class="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+          <!-- Renderizado dinámico de reglas aprendidas -->
+        </div>
+      </div>
+
+      <!-- BLOQUE 6: USARLO DESDE EL CELULAR POR TELEGRAM CON VOZ -->
+      <div class="bg-[#E8F0F6] border border-[#C9D9E6] rounded-2xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-xs sm:text-sm text-[#2D4A60] flex items-center gap-2">
+            <i class="fa-brands fa-telegram text-base text-[#4A7696]"></i>
+            <span>6. Marcos: Usalo desde tu Celular por Telegram (Con Voz 🎙️)</span>
+          </h3>
+          <button onclick="openConfigModal()" class="text-xs underline text-[#3B6280] hover:text-[#1F374A] font-semibold">
+            Conectar Bot
+          </button>
+        </div>
+        <p class="text-xs text-[#3E5669] leading-relaxed">
+          Cuando estés repartiendo por Córdoba y no tengas la PC a mano, <b>mandale un audio de voz o las fotos/videos de las almohadas a tu Telegram</b> (ej: <i>"Armame un reel del Pack x2 con las fotos que te pasé"</i> o <i>"¿Cuántos carritos abandonados tengo hoy?"</i>). Te va a responder con una <b>Nota de Voz</b> y el video MP4 listo.
+        </p>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- MODAL DE CONFIGURACIÓN: TELEGRAM BOT + MOTOR IA -->
+  <div id="config-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#FFFFFF] border border-[#DCD6CA] rounded-2xl max-w-md w-full p-5 space-y-4 shadow-xl text-[#2C302E]">
+      <div class="flex items-center justify-between border-b border-[#EAE5DC] pb-3">
+        <h3 class="font-bold text-base text-[#2C302E] flex items-center gap-2">
+          <i class="fa-solid fa-plug text-[#6F9279]"></i>
+          <span>Conectar tu Telegram y Motor IA</span>
+        </h3>
+        <button onclick="closeConfigModal()" class="text-[#6B706C] hover:text-[#2C302E]">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-[#355670] mb-1">
+            1. Token de tu Bot de Telegram (De @BotFather):
+          </label>
+          <input id="cfg-tg-token" type="password" placeholder="Ej: 7123456789:AAH..." class="w-full bg-[#F6F3EC] text-[#2C302E] px-3 py-2 rounded-lg border border-[#CFC8BC] focus:outline-none focus:border-[#6F9279]" />
+          <p class="text-[11px] text-[#6B706C] mt-1">
+            Con esto podés mandarle audios, fotos y videos desde tu celular por Telegram y recibir los Reels y notas de voz.
+          </p>
+        </div>
+
+        <div class="pt-2 border-t border-[#EAE5DC]">
+          <label class="block font-bold text-[#3B5E46] mb-1">
+            2. API Key de IA Opcional (OpenAI / OpenRouter / Hermes):
+          </label>
+          <input id="cfg-ai-key" type="password" placeholder="sk-..." class="w-full bg-[#F6F3EC] text-[#2C302E] px-3 py-2 rounded-lg border border-[#CFC8BC] focus:outline-none focus:border-[#6F9279]" />
+        </div>
+
+        <div>
+          <label class="block font-bold text-[#4A504C] mb-1">
+            URL del Endpoint compatible con OpenAI / Hermes:
+          </label>
+          <input id="cfg-ai-url" type="text" value="https://api.openai.com/v1/chat/completions" class="w-full bg-[#F6F3EC] text-[#2C302E] px-3 py-2 rounded-lg border border-[#CFC8BC]" />
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeConfigModal()" class="px-4 py-2 rounded-lg bg-[#EFECE4] text-[#4A504C] text-xs font-bold">Cancelar</button>
+        <button onclick="saveConfig()" class="px-4 py-2 rounded-lg bg-[#6F9279] hover:bg-[#5B7B64] text-white text-xs font-bold">Guardar y Activar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let lastChatCount = -1;
+    let selectedFiles = [];
+    let currentProductsList = [];
+    let productsDirty = false;
+    let voiceReplyEnabled = true;
+    let isRecording = false;
+    let mediaRecorder = null;
+    let recordedChunks = [];
+
+    function formatMarkdown(text) {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#1F2421] font-bold">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em class="text-[#466952] font-medium">$1</em>')
+        .replace(/`(.*?)`/g, '<code class="bg-[#EFECE4] text-[#3B5E46] border border-[#DCD6CA] px-1.5 py-0.5 rounded text-xs font-semibold">$1</code>')
+        .replace(/\n/g, '<br>');
+    }
+
+    function updateSelectedBar() {
+      const bar = document.getElementById('selected-files-bar');
+      const txt = document.getElementById('selected-files-text');
+      if (selectedFiles.length > 0) {
+        bar.classList.remove('hidden');
+        txt.textContent = `${selectedFiles.length} archivo(s) seleccionado(s) en orden: ${selectedFiles.join(' ➔ ')}`;
+      } else {
+        bar.classList.add('hidden');
+      }
+    }
+
+    function toggleSelectFile(fname) {
+      const idx = selectedFiles.indexOf(fname);
+      if (idx >= 0) {
+        selectedFiles.splice(idx, 1);
+      } else {
+        selectedFiles.push(fname);
+      }
+      updateSelectedBar();
+      loadState(false);
+    }
+
+    function clearSelectedFiles() {
+      selectedFiles = [];
+      updateSelectedBar();
+      loadState(false);
+    }
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handleFilesUpload(event) {
+      const fileList = Array.from(event.target.files || []);
+      if (!fileList.length) return;
+
+      const btnPanel = document.getElementById('btn-upload-panel');
+      const origHtml = btnPanel.innerHTML;
+      btnPanel.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Subiendo...';
+      btnPanel.disabled = true;
+
+      try {
+        const payloadFiles = [];
+        for (const f of fileList) {
+          const b64 = await fileToBase64(f);
+          payloadFiles.push({ name: f.name, dataBase64: b64 });
+        }
+
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ files: payloadFiles })
+        });
+        const data = await res.json();
+        if (data.ok && data.saved) {
+          selectedFiles = [...data.saved];
+          updateSelectedBar();
+          await loadState(true);
+        }
+      } catch (err) {
+        alert('Error al subir archivos: ' + err.message);
+      } finally {
+        btnPanel.innerHTML = origHtml;
+        btnPanel.disabled = false;
+        event.target.value = '';
+      }
+    }
+
+    async function buildReelFromSelected() {
+      const angle = document.getElementById('reel-angle-select').value;
+      const btn = document.getElementById('btn-build-reel');
+      const orig = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Armando MP4...';
+
+      try {
+        await fetch('/api/build-reel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            angle,
+            selectedFiles: selectedFiles.length > 0 ? selectedFiles : null
+          })
+        });
+        await loadState(false);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+      }
+    }
+
+    async function clearChatHistory() {
+      try {
+        await fetch('/api/clear-chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({})
+        });
+        lastChatCount = -1;
+        await loadState(false);
+      } catch (err) {
+        console.error('Error limpiando chat:', err);
+      }
+    }
+
+    async function deleteReelFile(filename, btnEl = null) {
+      try {
+        // Liberar cualquier reproductor <video> abierto con ese archivo para evitar bloqueo en Windows
+        document.querySelectorAll('video').forEach(v => {
+          if (filename === 'ALL' || (v.src && v.src.includes(filename))) {
+            try {
+              v.pause();
+              v.removeAttribute('src');
+              v.load();
+            } catch (e) {}
+          }
+        });
+
+        if (btnEl) {
+          const row = btnEl.closest('[data-reel-item]');
+          if (row) row.remove();
+        } else if (filename === 'ALL') {
+          const rl = document.getElementById('reels-list');
+          if (rl) rl.innerHTML = '';
+        }
+
+        await fetch('/api/delete-reel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename })
+        });
+        lastChatCount = -1;
+        await loadState(false);
+      } catch (err) {
+        console.error('Error al eliminar Reel:', err);
+      }
+    }
+
+    async function deleteUploadFile(event, filename) {
+      event.stopPropagation();
+      try {
+        await fetch('/api/delete-upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename })
+        });
+        const idx = selectedFiles.indexOf(filename);
+        if (idx >= 0) {
+          selectedFiles.splice(idx, 1);
+          updateSelectedBar();
+        }
+        await loadState(false);
+      } catch (err) {
+        console.error('Error al eliminar archivo:', err);
+      }
+    }
+
+    async function loadState(scrollIfNew = true) {
+      try {
+        const res = await fetch('/api/state?t=' + Date.now(), { cache: 'no-store' });
+        const data = await res.json();
+
+        if (data.business?.name) {
+          document.getElementById('biz-name').textContent = data.business.name;
+        }
+
+        // Estado de Telegram
+        const tgText = document.getElementById('tg-status-text');
+        if (data.telegramStatus?.running) {
+          tgText.innerHTML = `<span class="text-[#3B5E46]">●</span> @${data.telegramStatus.botUsername || 'Telegram Activo'}`;
+        } else if (data.telegramConfigured) {
+          tgText.textContent = 'Telegram: Verificando...';
+        } else {
+          tgText.textContent = 'Conectar mi Telegram';
+        }
+
+        // Renderizar Galería de Archivos Reales de Marcos
+        const uploads = data.uploads || [];
+        const uploadsGrid = document.getElementById('uploads-grid');
+        uploadsGrid.innerHTML = uploads.map(u => {
+          const selIndex = selectedFiles.indexOf(u.name);
+          const isSelected = selIndex >= 0;
+          const borderClass = isSelected ? 'border-2 border-[#6F9279] ring-2 ring-[#DCE8DE]' : 'border border-[#DCD6CA] opacity-90 hover:opacity-100';
+          const badgeHtml = isSelected 
+            ? `<span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-[#6F9279] text-white font-extrabold text-[11px] flex items-center justify-center shadow">${selIndex + 1}</span>`
+            : '';
+          const delUploadBtn = `
+            <button type="button" onclick="deleteUploadFile(event, '${u.name}')" title="Eliminar este archivo" class="absolute top-1 left-1 w-5 h-5 rounded-full bg-[#FFFFFF]/90 hover:bg-[#E8D5D2] text-[#8C534B] border border-[#DCD6CA] text-[10px] flex items-center justify-center shadow-sm transition">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          `;
+          const typeBadge = u.type === 'video'
+            ? `<span class="absolute bottom-1 left-1 bg-[#2C302E]/80 text-[#DCE8DE] text-[9px] px-1.5 py-0.5 rounded font-bold"><i class="fa-solid fa-video mr-0.5"></i>CLIP</span>`
+            : `<span class="absolute bottom-1 left-1 bg-[#2C302E]/75 text-[#E8F0F6] text-[9px] px-1.5 py-0.5 rounded font-bold"><i class="fa-solid fa-camera mr-0.5"></i>FOTO</span>`;
+
+          const mediaPreview = u.type === 'video'
+            ? `<video src="${u.url}" class="w-full h-16 object-cover rounded-lg pointer-events-none" muted></video>`
+            : `<img src="${u.url}" class="w-full h-16 object-cover rounded-lg pointer-events-none" alt="${u.name}" />`;
+
+          return `
+            <div onclick="toggleSelectFile('${u.name}')" class="relative cursor-pointer rounded-xl bg-[#F6F3EC] p-1 transition ${borderClass}" title="${u.name}">
+              ${mediaPreview}
+              ${delUploadBtn}
+              ${badgeHtml}
+              ${typeBadge}
+            </div>
+          `;
+        }).join('');
+
+        // Renderizar Chat si hay mensajes nuevos
+        const chatHistory = data.chatHistory || [];
+        if (chatHistory.length !== lastChatCount) {
+          lastChatCount = chatHistory.length;
+          const chatBox = document.getElementById('chat-box');
+          if (chatHistory.length === 0) {
+            chatBox.innerHTML = '';
+          } else {
+            chatBox.innerHTML = chatHistory.map(m => {
+              const isUser = m.role === 'user';
+              const badge = m.source === 'telegram' 
+                ? '<span class="text-[10px] bg-[#E6EFF6] text-[#355670] border border-[#C5D8E8] px-1.5 py-0.5 rounded ml-1"><i class="fa-brands fa-telegram"></i> Desde tu Telegram</span>' 
+                : '';
+              const voiceHtml = m.voice ? `
+                <div class="mt-2.5 p-2 rounded-xl bg-[#F6F3EC] border border-[#DCD6CA] flex items-center gap-2">
+                  <i class="fa-solid fa-volume-high text-[#4A7696] text-xs ml-1"></i>
+                  <audio src="${m.voice}" controls class="h-8 w-full"></audio>
+                </div>
+              ` : '';
+              const reelHtml = m.reel ? `
+                <div class="mt-3 p-3 rounded-xl bg-[#F6F3EC] border border-[#CFD8D0]">
+                  <video src="${m.reel}" controls class="w-44 rounded-lg mx-auto border border-[#CFC8BC] shadow-sm"></video>
+                  <div class="mt-2.5 flex justify-center">
+                    <a href="${m.reel}" download class="bg-[#6F9279] hover:bg-[#5B7B64] text-white font-bold text-xs px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5 shadow-sm">
+                      <i class="fa-solid fa-download"></i> Descargar mi Reel MP4
+                    </a>
+                  </div>
+                </div>
+              ` : '';
+
+              return `
+                <div class="flex ${isUser ? 'justify-end' : 'justify-start'}">
+                  <div class="max-w-[85%] rounded-2xl px-4 py-3 text-xs sm:text-sm leading-relaxed shadow-sm ${isUser ? 'bg-[#DCE8DE] text-[#223327] border border-[#C2D6C6]' : 'bg-[#FFFFFF] text-[#2C302E] border border-[#E2DDD3]'}">
+                    <div class="flex items-center justify-between gap-2 mb-1 text-[10px] text-[#6B706C]">
+                      <span class="font-bold ${isUser ? 'text-[#2F4B38]' : 'text-[#4A6B54]'}">${isUser ? 'Marcos' : '🤖 Tu Asistente'} ${badge}</span>
+                      <span>${m.timestamp || ''}</span>
+                    </div>
+                    <div>${formatMarkdown(m.text)}</div>
+                    ${voiceHtml}
+                    ${reelHtml}
+                  </div>
+                </div>
+              `;
+            }).join('');
+            if (scrollIfNew) chatBox.scrollTop = chatBox.scrollHeight;
+          }
+        }
+
+        // Renderizar Lista de Reels de Marcos (con botón Eliminar)
+        const reels = data.reels || [];
+        document.getElementById('reels-count').textContent = `${reels.length} videos`;
+        const reelsList = document.getElementById('reels-list');
+        if (reels.length === 0) {
+          reelsList.innerHTML = `
+            <div class="text-center py-4 text-xs text-[#6B706C] bg-[#F6F3EC] rounded-xl border border-[#E2DDD3]">
+              No tenés Reels guardados en este momento. Seleccioná tus fotos o clips arriba y tocá <b>Armar mi Reel MP4</b>.
+            </div>
+          `;
+        } else {
+          reelsList.innerHTML = reels.map(r => `
+            <div data-reel-item="${r}" class="flex items-center justify-between bg-[#F6F3EC] p-2.5 rounded-xl border border-[#E2DDD3]">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <div class="w-8 h-8 rounded-lg bg-[#DCE8DE] text-[#3B5E46] flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-video"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-[#2C302E] truncate">${r}</p>
+                  <span class="text-[10px] text-[#6B706C]">100% Producto Real • Sin Voz • 9:16</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <a href="/reels/${r}" target="_blank" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#EAE5DC] text-[#3E4541] border border-[#CFC8BC] text-xs font-semibold">
+                  Ver
+                </a>
+                <a href="/reels/${r}" download class="px-2.5 py-1 rounded-lg bg-[#6F9279] hover:bg-[#5B7B64] text-white text-xs font-bold flex items-center gap-1">
+                  <i class="fa-solid fa-download"></i> MP4
+                </a>
+                <button type="button" onclick="deleteReelFile('${r}', this)" title="Eliminar este Reel" class="px-2.5 py-1 rounded-lg bg-[#F5E6E4] hover:bg-[#EBD0CC] text-[#9E4B42] border border-[#E0C2BE] text-xs font-bold transition">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // Renderizar Tabla Editable de Productos y CPA (solo si Marcos no está escribiendo adentro de la tabla)
+        const prodCard = document.getElementById('products-card');
+        const isTypingInTable = prodCard && prodCard.contains(document.activeElement);
+        if (!isTypingInTable && !productsDirty) {
+          if (data.business) {
+            document.getElementById('inp-return-pct').value = data.business.returnReservePercent ?? 2;
+            document.getElementById('inp-transf-pct').value = data.business.transferDiscountPercent ?? 15;
+          }
+          currentProductsList = (data.products || []).map(p => ({ ...p }));
+          renderEditableProductsTable();
+        }
+
+        // Renderizar Sector de Analítica de la Tienda WhatsApp Business
+        if (data.storeAnalytics) {
+          renderStoreAnalytics(data.storeAnalytics);
+        }
+
+        // Renderizar Memoria Aprendida de Marcos
+        if (data.agentMemory) {
+          renderAgentMemory(data.agentMemory);
+        }
+
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function renderAgentMemory(mem) {
+      const rules = mem.learnedRules || [];
+      const badge = document.getElementById('memory-count-badge');
+      if (badge) badge.textContent = `${rules.length} reglas`;
+      const listEl = document.getElementById('memory-rules-list');
+      if (!listEl) return;
+      if (rules.length === 0) {
+        listEl.innerHTML = `<div class="text-[11px] text-[#6B706C] py-2 text-center">Sin reglas aprendidas todavía.</div>`;
+        return;
+      }
+      listEl.innerHTML = rules.map(r => `
+        <div class="flex items-start justify-between gap-2 bg-[#F9F7F3] border border-[#E2DDD3] rounded-lg px-2.5 py-1.5 text-[11px]">
+          <div class="min-w-0">
+            <span class="font-semibold text-[#2F4B38]">•</span>
+            <span class="text-[#2C302E] font-medium">${r.text}</span>
+            <span class="text-[9px] text-[#6B706C] ml-1">(${r.category || 'Memoria'})</span>
+          </div>
+          <button type="button" onclick="deleteMemoryRule('${r.id}')" title="Olvidar esta regla" class="text-[#8C534B] hover:text-[#6E362F] shrink-0 px-1">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    async function addMemoryRule() {
+      const inp = document.getElementById('inp-new-memory');
+      const text = (inp.value || '').trim();
+      if (!text) return;
+      inp.value = '';
+      await fetch('/api/memory/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      await loadState(false);
+    }
+
+    async function deleteMemoryRule(id) {
+      await fetch('/api/memory/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id })
+      });
+      await loadState(false);
+    }
+
+    function copyTrackingLink(urlText, btnEl) {
+      navigator.clipboard.writeText(urlText).then(() => {
+        const orig = btnEl.textContent;
+        btnEl.textContent = '✓ Copiado';
+        setTimeout(() => { btnEl.textContent = orig; }, 1800);
+      }).catch(() => {});
+    }
+
+    function renderStoreAnalytics(an) {
+      document.getElementById('an-pageviews').textContent = (an.pageViews || 0).toLocaleString('es-AR');
+      document.getElementById('an-visitors').textContent = `${(an.uniqueVisitors || 0).toLocaleString('es-AR')} únicos`;
+      document.getElementById('an-wa-clicks').textContent = (an.whatsappCheckoutClicks || 0).toLocaleString('es-AR');
+      document.getElementById('an-conv-rate').textContent = `${an.conversionRate ?? 0}% conv.`;
+      document.getElementById('an-abandoned-count').textContent = (an.abandonedCartsCount || 0).toLocaleString('es-AR');
+      document.getElementById('an-abandoned-value').textContent = `($${(an.abandonedCartsValue || 0).toLocaleString('es-AR')})`;
+      document.getElementById('an-abandon-rate').textContent = `${an.abandonmentRate ?? 0}% aband.`;
+      document.getElementById('an-dwell-time').textContent = an.avgDurationFormatted || '0m 00s';
+      document.getElementById('an-total-clicks').textContent = `${(an.totalClicks || 0).toLocaleString('es-AR')} clics`;
+      document.getElementById('an-avg-clicks').textContent = `${an.avgClicksPerVisitor ?? 0} clics/vis.`;
+      document.getElementById('an-add-to-cart-total').textContent = `${(an.addToCartClicks || 0).toLocaleString('es-AR')} agregados al carrito`;
+
+      // Renderizar Tabla de Origen y Anuncios Específicos
+      const topAds = an.topAds || [];
+      const adsTbody = document.getElementById('an-ads-tbody');
+      if (adsTbody) {
+        adsTbody.innerHTML = topAds.map((ad, idx) => {
+          const isWinner = idx === 0 && (ad.whatsappOrders || 0) > 0;
+          return `
+            <tr class="hover:bg-[#F6F3EC]">
+              <td class="py-1.5 pr-2">
+                <div class="font-semibold text-[#2C302E] flex items-center gap-1 truncate max-w-[165px]" title="${ad.adName}">
+                  <span>${isWinner ? '🏆' : '📣'}</span>
+                  <span class="truncate">${ad.adName}</span>
+                </div>
+                <span class="inline-block text-[9px] bg-[#E8F0F6] text-[#355670] border border-[#C9D9E6] px-1.5 py-0.2 rounded font-semibold mt-0.5">
+                  ${ad.source}
+                </span>
+              </td>
+              <td class="py-1.5 px-1 text-center font-bold text-[#2C302E]">${ad.views || 0}</td>
+              <td class="py-1.5 px-1 text-center text-[#355670] font-medium">${ad.avgDurationFormatted || '0s'}</td>
+              <td class="py-1.5 px-1 text-center">
+                <span class="inline-block bg-[#DCE8DE] text-[#2F4B38] font-bold px-1.5 py-0.5 rounded">${ad.whatsappOrders || 0}</span>
+                <span class="block text-[9px] text-[#3B5E46] font-semibold">${ad.conversionRate ?? 0}%</span>
+              </td>
+              <td class="py-1.5 pl-1 text-center">
+                <span class="inline-block bg-[#F5EAE0] text-[#7A5438] font-bold px-1.5 py-0.5 rounded">${ad.abandoned || 0}</span>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      const topProds = an.topProducts || [];
+      const maxViews = Math.max(1, ...topProds.map(p => p.views || 1));
+      const prodTbody = document.getElementById('an-products-tbody');
+      if (prodTbody) {
+        prodTbody.innerHTML = topProds.map((p, idx) => {
+          const pct = Math.min(100, Math.round(((p.views || 0) / maxViews) * 100));
+          return `
+            <tr class="hover:bg-[#F6F3EC]">
+              <td class="py-1.5 pr-2">
+                <div class="font-semibold text-[#2C302E] truncate max-w-[165px]" title="${p.name}">
+                  ${idx === 0 ? '🔥 ' : ''}${p.name}
+                </div>
+                <div class="w-full bg-[#EAE5DC] h-1.5 rounded-full mt-1 overflow-hidden">
+                  <div class="bg-[#6F9279] h-full rounded-full" style="width:${pct}%"></div>
+                </div>
+              </td>
+              <td class="py-1.5 px-1.5 text-center font-bold text-[#2C302E]">${p.views || 0}</td>
+              <td class="py-1.5 px-1.5 text-center font-semibold text-[#355670]">${p.addedToCart || 0}</td>
+              <td class="py-1.5 px-1.5 text-center">
+                <span class="inline-block bg-[#DCE8DE] text-[#2F4B38] font-bold px-1.5 py-0.5 rounded">${p.whatsappOrders || 0}</span>
+              </td>
+              <td class="py-1.5 pl-1.5 text-center">
+                <span class="inline-block bg-[#F5EAE0] text-[#7A5438] font-bold px-1.5 py-0.5 rounded">${p.abandoned || 0}</span>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      const sessions = an.recentSessions || [];
+      const sessList = document.getElementById('an-sessions-list');
+      if (sessList) {
+        if (sessions.length === 0) {
+          sessList.innerHTML = `<div class="text-[11px] text-[#6B706C] text-center py-2">Esperando nuevas visitas en tu tienda...</div>`;
+        } else {
+          sessList.innerHTML = sessions.map(s => {
+            const durSec = s.durationSec || 0;
+            const dMin = Math.floor(durSec / 60);
+            const dRem = durSec % 60;
+            const durTxt = `${dMin}m ${String(dRem).padStart(2, '0')}s`;
+            const adBadge = s.adName
+              ? `<span class="inline-block bg-[#E8F0F6] text-[#2D4A60] border border-[#C9D9E6] text-[9px] font-bold px-1.5 py-0.2 rounded">📣 ${s.adName} (${s.source || 'Ads'})</span>`
+              : '';
+            let badge = '';
+            if (s.status === 'whatsapp_order' || s.type === 'whatsapp_order') {
+              badge = `<span class="bg-[#DCE8DE] text-[#2F4B38] border border-[#BFD3C3] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">📲 Pidió WA ($${(s.cartValue || 0).toLocaleString('es-AR')})</span>`;
+            } else if (s.status === 'abandoned_cart' || s.type === 'abandoned_cart') {
+              badge = `<span class="bg-[#F5EAE0] text-[#7A5438] border border-[#E4D1C0] text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">🛒 Abandonó ($${(s.cartValue || 0).toLocaleString('es-AR')})</span>`;
+            } else {
+              badge = `<span class="bg-[#E8F0F6] text-[#355670] border border-[#C9D9E6] text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0">👁️ Miró catálogo</span>`;
+            }
+            return `
+              <div class="flex items-center justify-between gap-2 bg-[#FFFFFF] border border-[#E2DDD3] rounded-lg px-2.5 py-1.5 text-[11px]">
+                <div class="min-w-0 space-y-0.5">
+                  <div class="font-semibold text-[#2C302E] truncate">${s.topProduct || s.detail || 'Catálogo General'}</div>
+                  <div class="flex flex-wrap items-center gap-1.5 text-[10px] text-[#6B706C]">
+                    ${adBadge}
+                    <span><i class="fa-regular fa-clock"></i> ${durTxt}</span>
+                    <span>•</span>
+                    <span><i class="fa-solid fa-arrow-pointer"></i> ${s.clicks || 0} clics</span>
+                    <span>•</span>
+                    <span>${s.time || 'Reciente'}</span>
+                  </div>
+                </div>
+                ${badge}
+              </div>
+            `;
+          }).join('');
+        }
+      }
+    }
+
+    async function simulateStoreEvent(eventType) {
+      const sampleProds = [
+        { id: 'pack-2-cervicales', name: 'Pack x2 Almohadas Cervicales Ergonómicas', price: 55165 },
+        { id: 'cervical-individual', name: 'Almohada Cervical Ergonómica (1 unidad)', price: 30515 },
+        { id: 'pack-2-clasicas', name: 'Pack x2 Almohadas Tradicionales Clásicas', price: 50915 }
+      ];
+      const sampleAds = [
+        { adKey: 'reel-dolor-cervical-instagram-ads', adName: 'Reel 1: Dolor Cervical', source: 'Instagram Ads' },
+        { adKey: 'reel-pack-x2-ahorro-facebook-ads', adName: 'Reel 2: Pack x2 Ahorro', source: 'Facebook Ads' },
+        { adKey: 'reel-densidad-rebote-instagram-ads', adName: 'Reel 3: Densidad y Rebote', source: 'Instagram Ads' }
+      ];
+      const chosen = sampleProds[Math.floor(Math.random() * sampleProds.length)];
+      const chosenAd = sampleAds[Math.floor(Math.random() * sampleAds.length)];
+      const randClicks = Math.floor(Math.random() * 8) + 5;
+      const randDuration = Math.floor(Math.random() * 140) + 65;
+
+      try {
+        await fetch('/api/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            eventType,
+            productId: chosen.id,
+            productName: chosen.name,
+            cartValue: chosen.price,
+            clicks: randClicks,
+            durationSec: randDuration,
+            adKey: chosenAd.adKey,
+            adName: chosenAd.adName,
+            source: chosenAd.source,
+            newVisitor: true
+          })
+        });
+        await loadState(false);
+      } catch (err) {
+        console.error('Error simulando evento de tienda:', err);
+      }
+    }
+
+    async function resetStoreAnalytics() {
+      try {
+        await fetch('/api/analytics/reset', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({})
+        });
+        await loadState(false);
+      } catch (err) {
+        console.error('Error al reiniciar analítica:', err);
+      }
+    }
+
+    function renderEditableProductsTable() {
+      const tbody = document.getElementById('products-table-body');
+      const retPct = parseFloat(document.getElementById('inp-return-pct').value) || 0;
+      const discPct = parseFloat(document.getElementById('inp-transf-pct').value) || 0;
+
+      tbody.innerHTML = currentProductsList.map((p, idx) => {
+        const price = parseFloat(p.price) || 0;
+        const cost = parseFloat(p.cost) || 0;
+        const pkg = parseFloat(p.packagingCost ?? 500) || 0;
+        const transfPrice = Math.round(price * (1 - discPct / 100));
+        const retReserve = Math.round(price * (retPct / 100));
+        const totalDirectCost = cost + pkg + retReserve;
+        const netMarginTransf = transfPrice - totalDirectCost;
+        const cpaMax = Math.max(0, Math.round(netMarginTransf * 0.85));
+        const cpaIdeal = Math.max(0, Math.round(netMarginTransf * 0.30));
+
+        return `
+          <tr class="hover:bg-[#F9F7F3]" data-row-idx="${idx}">
+            <td class="py-2 pr-1.5 align-top">
+              <input type="text" value="${p.name.replace(/"/g, '&quot;')}" 
+                oninput="onProductFieldInput(${idx}, 'name', this.value)"
+                onchange="saveProductsTable()"
+                class="w-full min-w-[140px] bg-[#F6F3EC] text-[#2C302E] font-semibold text-xs px-2 py-1.5 rounded-lg border border-[#DCD6CA] focus:outline-none focus:border-[#6F9279]" />
+            </td>
+            <td class="py-2 px-1.5 align-top">
+              <div class="flex items-center bg-[#F6F3EC] rounded-lg border border-[#DCD6CA] px-1.5 py-1 focus-within:border-[#6F9279]">
+                <span class="text-[#6B706C] mr-0.5">$</span>
+                <input type="number" step="100" value="${price}" 
+                  oninput="onProductFieldInput(${idx}, 'price', this.value)"
+                  onchange="saveProductsTable()"
+                  class="w-20 bg-transparent text-[#2C302E] font-bold text-xs focus:outline-none" />
+              </div>
+              <span class="block text-[10px] text-[#3B5E46] mt-0.5 font-semibold" id="row-transf-${idx}">
+                $${transfPrice.toLocaleString('es-AR')} Transf.
+              </span>
+            </td>
+            <td class="py-2 px-1.5 align-top">
+              <div class="flex items-center bg-[#F6F3EC] rounded-lg border border-[#DCD6CA] px-1.5 py-1 focus-within:border-[#6F9279]">
+                <span class="text-[#6B706C] mr-0.5">$</span>
+                <input type="number" step="100" value="${cost}" 
+                  oninput="onProductFieldInput(${idx}, 'cost', this.value)"
+                  onchange="saveProductsTable()"
+                  class="w-20 bg-transparent text-[#3E4541] font-semibold text-xs focus:outline-none" />
+              </div>
+              <span class="block text-[10px] text-[#6B706C] mt-0.5" id="row-cost-sub-${idx}">
+                Total: $${totalDirectCost.toLocaleString('es-AR')} ($${retReserve.toLocaleString('es-AR')} gar.)
+              </span>
+            </td>
+            <td class="py-2 px-1.5 align-top">
+              <span class="inline-block bg-[#E5EFE7] text-[#2F4B38] font-bold text-xs px-2 py-1 rounded-lg border border-[#C6DBC9]" id="row-margin-${idx}">
+                +$${netMarginTransf.toLocaleString('es-AR')}
+              </span>
+            </td>
+            <td class="py-2 pl-1.5 align-top" id="row-cpa-${idx}">
+              <span class="inline-block bg-[#F5EAE0] text-[#7A5438] font-bold text-xs px-2 py-0.5 rounded-lg border border-[#E4D1C0]">
+                $${cpaMax.toLocaleString('es-AR')}
+              </span>
+              <span class="block text-[10px] text-[#6B706C] font-normal mt-0.5">Ideal: $${cpaIdeal.toLocaleString('es-AR')}</span>
+            </td>
+            <td class="py-2 pl-1 align-top text-right">
+              <button type="button" onclick="removeProductRow(${idx})" title="Eliminar producto" class="text-[#9AA09C] hover:text-[#B85D53] px-1.5 py-1 transition">
+                <i class="fa-solid fa-trash-can text-xs"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function onProductFieldInput(idx, field, val) {
+      productsDirty = true;
+      if (!currentProductsList[idx]) return;
+      if (field === 'name') {
+        currentProductsList[idx].name = val;
+      } else {
+        currentProductsList[idx][field] = parseFloat(val) || 0;
+      }
+      recalcProductsLive();
+    }
+
+    function recalcProductsLive() {
+      productsDirty = true;
+      const retPct = parseFloat(document.getElementById('inp-return-pct').value) || 0;
+      const discPct = parseFloat(document.getElementById('inp-transf-pct').value) || 0;
+
+      currentProductsList.forEach((p, idx) => {
+        const price = parseFloat(p.price) || 0;
+        const cost = parseFloat(p.cost) || 0;
+        const pkg = parseFloat(p.packagingCost ?? 500) || 0;
+        const transfPrice = Math.round(price * (1 - discPct / 100));
+        const retReserve = Math.round(price * (retPct / 100));
+        const totalDirectCost = cost + pkg + retReserve;
+        const netMarginTransf = transfPrice - totalDirectCost;
+        const cpaMax = Math.max(0, Math.round(netMarginTransf * 0.85));
+        const cpaIdeal = Math.max(0, Math.round(netMarginTransf * 0.30));
+
+        const elTransf = document.getElementById(`row-transf-${idx}`);
+        const elCostSub = document.getElementById(`row-cost-sub-${idx}`);
+        const elMargin = document.getElementById(`row-margin-${idx}`);
+        const elCpa = document.getElementById(`row-cpa-${idx}`);
+
+        if (elTransf) elTransf.textContent = `$${transfPrice.toLocaleString('es-AR')} Transf.`;
+        if (elCostSub) elCostSub.textContent = `Total: $${totalDirectCost.toLocaleString('es-AR')} ($${retReserve.toLocaleString('es-AR')} gar.)`;
+        if (elMargin) elMargin.textContent = `${netMarginTransf >= 0 ? '+' : ''}$${netMarginTransf.toLocaleString('es-AR')}`;
+        if (elCpa) {
+          elCpa.innerHTML = `
+            <span class="inline-block bg-[#F5EAE0] text-[#7A5438] font-bold text-xs px-2 py-0.5 rounded-lg border border-[#E4D1C0]">
+              $${cpaMax.toLocaleString('es-AR')}
+            </span>
+            <span class="block text-[10px] text-[#6B706C] font-normal mt-0.5">Ideal: $${cpaIdeal.toLocaleString('es-AR')}</span>
+          `;
+        }
+      });
+    }
+
+    function addNewProductRow() {
+      productsDirty = true;
+      currentProductsList.push({
+        id: 'prod-' + Date.now(),
+        name: 'Nuevo Producto',
+        price: 35000,
+        cost: 15000,
+        packagingCost: 500
+      });
+      renderEditableProductsTable();
+      saveProductsTable();
+    }
+
+    function removeProductRow(idx) {
+      if (currentProductsList.length <= 1) return;
+      productsDirty = true;
+      currentProductsList.splice(idx, 1);
+      renderEditableProductsTable();
+      saveProductsTable();
+    }
+
+    async function saveProductsTable() {
+      const btn = document.getElementById('btn-save-products');
+      const badge = document.getElementById('save-status-badge');
+      const retPct = parseFloat(document.getElementById('inp-return-pct').value) || 0;
+      const discPct = parseFloat(document.getElementById('inp-transf-pct').value) || 0;
+
+      if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Guardando...</span>';
+      try {
+        const res = await fetch('/api/products', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            returnReservePercent: retPct,
+            transferDiscountPercent: discPct,
+            products: currentProductsList
+          })
+        });
+        const data = await res.json();
+        if (data.ok) {
+          productsDirty = false;
+          currentProductsList = (data.products || []).map(p => ({ ...p }));
+          if (badge) {
+            badge.classList.remove('hidden');
+            setTimeout(() => badge.classList.add('hidden'), 2500);
+          }
+        }
+      } catch (e) {
+        console.error('Error guardando productos:', e);
+      } finally {
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> <span>Guardar</span>';
+      }
+    }
+
+    function toggleVoiceReplyMode() {
+      voiceReplyEnabled = !voiceReplyEnabled;
+      const btn = document.getElementById('btn-voice-toggle');
+      const icon = document.getElementById('voice-toggle-icon');
+      const txt = document.getElementById('voice-toggle-text');
+      if (voiceReplyEnabled) {
+        btn.className = 'bg-[#DCE8DE] text-[#2F4B38] border border-[#BFD3C3] px-2.5 py-3 rounded-xl text-xs font-bold flex items-center gap-1 transition shrink-0';
+        icon.className = 'fa-solid fa-volume-high';
+        txt.textContent = 'Voz ON';
+      } else {
+        btn.className = 'bg-[#EFECE4] text-[#6B706C] border border-[#DCD6CA] px-2.5 py-3 rounded-xl text-xs font-bold flex items-center gap-1 transition shrink-0';
+        icon.className = 'fa-solid fa-volume-xmark';
+        txt.textContent = 'Voz OFF';
+      }
+    }
+
+    async function toggleVoiceRecording() {
+      const btnMic = document.getElementById('btn-mic');
+      const micIcon = document.getElementById('mic-icon');
+      const micLabel = document.getElementById('mic-label');
+
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          recordedChunks = [];
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.ondataavailable = (e) => {
+            if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+          };
+          mediaRecorder.onstop = async () => {
+            stream.getTracks().forEach(t => t.stop());
+            const blob = new Blob(recordedChunks, { type: 'audio/webm' });
+            const b64 = await fileToBase64(blob);
+            micIcon.className = 'fa-solid fa-spinner fa-spin';
+            micLabel.textContent = 'Escuchando...';
+            try {
+              const res = await fetch('/api/voice-order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  audioBase64: b64,
+                  ext: '.webm',
+                  selectedFiles: selectedFiles.length > 0 ? selectedFiles : null
+                })
+              });
+              const data = await res.json();
+              await loadState(true);
+              if (data.voiceUrl) {
+                const audio = new Audio(data.voiceUrl);
+                audio.play().catch(() => {});
+              }
+            } catch (err) {
+              alert('Error procesando orden por voz: ' + err.message);
+            } finally {
+              micIcon.className = 'fa-solid fa-microphone';
+              micLabel.textContent = 'Hablar';
+              btnMic.className = 'bg-[#E6EFF6] hover:bg-[#D6E5F0] text-[#355670] border border-[#C5D8E8] px-3.5 py-3 rounded-xl text-sm flex items-center gap-1.5 transition shrink-0';
+            }
+          };
+          mediaRecorder.start();
+          isRecording = true;
+          micIcon.className = 'fa-solid fa-stop animate-pulse';
+          micLabel.textContent = 'Enviar Audio';
+          btnMic.className = 'bg-[#D98A82] text-white border border-[#C4746C] px-3.5 py-3 rounded-xl text-sm flex items-center gap-1.5 transition shrink-0 shadow-sm';
+        } catch (err) {
+          alert('Marcos: permití el uso del micrófono en el navegador para hablarle a tu asistente.');
+        }
+      } else {
+        isRecording = false;
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
+        }
+      }
+    }
+
+    async function sendChatMessage(messageText, customSelectedFiles = null, isVoiceIn = false) {
+      const input = document.getElementById('chat-input');
+      const btn = document.getElementById('btn-send');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando...';
+      const filesToUse = customSelectedFiles || (selectedFiles.length > 0 ? selectedFiles : null);
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: messageText,
+            selectedFiles: filesToUse,
+            generateVoice: voiceReplyEnabled,
+            isVoiceInput: isVoiceIn
+          })
+        });
+        const data = await res.json();
+        input.value = '';
+        await loadState(true);
+        if (voiceReplyEnabled && data.voiceUrl) {
+          const audio = new Audio(data.voiceUrl);
+          audio.play().catch(() => {});
+        }
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>Enviar</span><i class="fa-solid fa-paper-plane"></i>';
+      }
+    }
+
+    function sendQuickCommand(cmdText) {
+      sendChatMessage(cmdText);
+    }
+
+    document.getElementById('chat-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = document.getElementById('chat-input').value.trim();
+      if (val) sendChatMessage(val);
+    });
+
+    function openConfigModal() {
+      document.getElementById('config-modal').classList.remove('hidden');
+    }
+    function closeConfigModal() {
+      document.getElementById('config-modal').classList.add('hidden');
+    }
+
+    async function saveConfig() {
+      const botToken = document.getElementById('cfg-tg-token').value.trim();
+      const apiKey = document.getElementById('cfg-ai-key').value.trim();
+      const apiUrl = document.getElementById('cfg-ai-url').value.trim();
+      const payload = {};
+      if (botToken) payload.botToken = botToken;
+      if (apiKey) payload.apiKey = apiKey;
+      if (apiUrl) payload.apiUrl = apiUrl;
+
+      await fetch('/api/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      closeConfigModal();
+      setTimeout(() => loadState(true), 1000);
+    }
+
+    loadState(true);
+    setInterval(() => loadState(false), 4000);
+  </script>
+</body>
+</html>
